@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teste</h1>
+    <p>adicione seu texto e então a IA irá realizar a análise de sentimentos do texto</p>
+
+    <form action="{% url 'analise' %}" method="post">
+        {% csrf_token %}
+
+        {{form}}
+
+        <input type="submit" value="Enviar">
+    </form>
+    
+    {% if mostrar_grafico %}
+        <div style="width: 300px; height: 300px;">
+            <canvas id="myChart"></canvas>
+            
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <script>
+                    const ctx = document.getElementById('myChart');
+
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                        labels: ['Palavras Positivas', 'Palavras Negativas'],
+                        datasets: [{
+                            label: '#Quantidade de palavras',
+                            data: [{{positivos}}, {{negativos}}],
+                            borderWidth: 1,
+                            backgroundColor: [
+                                'rgba(34, 197, 94, 0.7)',
+                                'rgba(239, 68, 68, 0.7)' 
+                            ],
+                            borderColor: [
+                                'rgba(21, 128, 61, 1)',     
+                                'rgba(185, 28, 28, 1)' 
+                            ]
+                        }]
+                        },
+                        options: {
+                        scales: {
+                            y: {
+                            beginAtZero: true
+                            }
+                        }
+                        }
+                    });
+                </script>
+        </div>
+    {% endif %}
+</body>
+</html>
