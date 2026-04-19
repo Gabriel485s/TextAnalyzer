@@ -3,6 +3,7 @@ from .forms import IaForm
 from django.http import HttpRequest
 import string
 import nltk
+nltk.download('punkt_tab')
 
 
 
