@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,36 +10,49 @@
 
     </style>
 </head>
-<body>
-    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 sticky-top">
-    <div class="container px-6 py-4 mx-auto">
-        <div class="lg:flex lg:items-center">
-            <div class="flex items-center justify-between">
-                <a href="#">
-                    <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
-                </a>
 
-                <!-- Mobile menu button -->
-                <div class="flex lg:hidden">
-                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-                        </svg>
-                
-                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+<body class="bg-white dark:bg-gray-900">
+    
+    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full">
+        <div class="container px-6 py-4 mx-auto">
+            <div class="lg:flex lg:items-center">
+                <div class="flex items-center justify-between">
+                    <a href="#">
+                        <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <div class="flex lg:hidden">
+                        <button x-cloak @click="isOpen = !isOpen" type="button"
+                            class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                            aria-label="toggle menu">
+                            <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                            </svg>
+
+                            <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
-                <div class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Sobre</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Dados</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Teste agora!</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Créditos</a>
-                    <!-- Search Bar
+                <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+                    class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
+                    <div
+                        class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
+                        <a href="#"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Sobre</a>
+                        <a href="#"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Dados</a>
+                        <a href="#"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Teste
+                            agora!</a>
+                        <a href="#"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Créditos</a>
+                        <!-- Search Bar
                     <div class="relative mt-4 lg:mt-0 lg:mx-4">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
@@ -49,9 +63,9 @@
                         <input type="text" class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search">
                     </div>
                     -->
-                </div>
-                
-                <!-- 
+                    </div>
+
+                    <!-- 
                 Logo href Reddit
                 <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
                     <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
@@ -72,9 +86,12 @@
                         </svg>
                     </a>
                 -->
-                    <a href="https://github.com/Gabriel485s/TextAnalyzer" class="flex align-items-center gap-2 mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 row" aria-label="Github">
+                    <a href="https://github.com/Gabriel485s/TextAnalyzer"
+                        class="flex align-items-center gap-2 mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 row"
+                        aria-label="Github">
                         Projeto GitHub
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
                             </path>
@@ -83,119 +100,153 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
     </nav>
+    <header class="bg-white dark:bg-gray-900 my-12">
+        <div class="container px-6 py-16 mx-auto text-center">
+            <div class="max-w-lg mx-auto">
+                <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Conheça agora seu mais novo
+                    agente de inteligência artificial para análise de notícias:</h1>
+                <h1 class="text-3xl font-semibold text-blue-600 dark:text-blue-400 lg:text-5xl">News AI Reviewer</h1>
+                <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia e verifique a qualidade
+                    da mesma por meio de dados e inteligência</p>
+                <button
+                    class="px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+                    Analisar Agora!
+                </button>
+            </div>
 
+            <div class="flex justify-center mt-10">
+                <img class="object-cover w-full h-96 rounded-xl lg:w-4/5"
+                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" />
+            </div>
+        </div>
+    </header>
+    <!-- <hr class="my-12 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" /> -->
+    <hr class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
     <section class="bg-white dark:bg-gray-900">
+        <div class="lg:flex">
+            <div class="container px-6 py-16 mx-auto text-center">
+                <h2 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-5xl leading-12">Insira sua notícia e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>, <span class="text-blue-600 dark:text-blue-400">confiabilidade</span> e o <span class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!</h2>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 lg:text-xl">Garanta a credibilidade das suas informações identificando viés, sentimento e possíveis sinais de desinformação.</p>
+                <div class="flex justify-evenly mt-2 text-lg text-gray-600 dark:text-gray-400 lg:text-lg text-center font-semibold">
+                    <p class="flex items-center">
+                        <svg class="w-8 mx-3" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#99A1AF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>ai</title> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="16" height="16" fill="none"></rect> </g> <g id="Q3_icons" data-name="Q3 icons"> <g> <path d="M45.6,18.7,41,14.9V7.5a1,1,0,0,0-.6-.9L30.5,2.1h-.4l-.6.2L24,5.9,18.5,2.2,17.9,2h-.4L7.6,6.6a1,1,0,0,0-.6.9v7.4L2.4,18.7a.8.8,0,0,0-.4.8v9H2a.8.8,0,0,0,.4.8L7,33.1v7.4a1,1,0,0,0,.6.9l9.9,4.5h.4l.6-.2L24,42.1l5.5,3.7.6.2h.4l9.9-4.5a1,1,0,0,0,.6-.9V33.1l4.6-3.8a.8.8,0,0,0,.4-.7V19.4h0A.8.8,0,0,0,45.6,18.7Zm-5.1,6.8H42v1.6l-3.5,2.8-.4.3-.4-.2a1.4,1.4,0,0,0-2,.7,1.5,1.5,0,0,0,.6,2l.7.3h0v5.4l-6.6,3.1-4.2-2.8-.7-.5V25.5H27a1.5,1.5,0,0,0,0-3H25.5V9.7l.7-.5,4.2-2.8L37,9.5v5.4h0l-.7.3a1.5,1.5,0,0,0-.6,2,1.4,1.4,0,0,0,1.3.9l.7-.2.4-.2.4.3L42,20.9v1.6H40.5a1.5,1.5,0,0,0,0,3ZM21,25.5h1.5V38.3l-.7.5-4.2,2.8L11,38.5V33.1h0l.7-.3a1.5,1.5,0,0,0,.6-2,1.4,1.4,0,0,0-2-.7l-.4.2-.4-.3L6,27.1V25.5H7.5a1.5,1.5,0,0,0,0-3H6V20.9l3.5-2.8.4-.3.4.2.7.2a1.4,1.4,0,0,0,1.3-.9,1.5,1.5,0,0,0-.6-2L11,15h0V9.5l6.6-3.1,4.2,2.8.7.5V22.5H21a1.5,1.5,0,0,0,0,3Z"></path> <path d="M13.9,9.9a1.8,1.8,0,0,0,0,2.2l2.6,2.5v2.8l-4,4v5.2l4,4v2.8l-2.6,2.5a1.8,1.8,0,0,0,0,2.2,1.5,1.5,0,0,0,1.1.4,1.5,1.5,0,0,0,1.1-.4l3.4-3.5V29.4l-4-4V22.6l4-4V13.4L16.1,9.9A1.8,1.8,0,0,0,13.9,9.9Z"></path> <path d="M31.5,14.6l2.6-2.5a1.8,1.8,0,0,0,0-2.2,1.8,1.8,0,0,0-2.2,0l-3.4,3.5v5.2l4,4v2.8l-4,4v5.2l3.4,3.5a1.7,1.7,0,0,0,2.2,0,1.8,1.8,0,0,0,0-2.2l-2.6-2.5V30.6l4-4V21.4l-4-4Z"></path> </g> </g> </g> </g></svg>
+                        Análise de sentimento automatizada
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-8 mx-3" height="48px" width="48px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#99A1AF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#99A1AF;} </style> <g> <path class="st0" d="M332.998,291.918c52.2-71.895,45.941-173.338-18.834-238.123c-71.736-71.728-188.468-71.728-260.195,0 c-71.746,71.745-71.746,188.458,0,260.204c64.775,64.775,166.218,71.034,238.104,18.844l14.222,14.203l40.916-40.916 L332.998,291.918z M278.488,278.333c-52.144,52.134-136.699,52.144-188.852,0c-52.152-52.153-52.152-136.717,0-188.861 c52.154-52.144,136.708-52.144,188.852,0C330.64,141.616,330.64,226.18,278.488,278.333z"></path> <path class="st0" d="M109.303,119.216c-27.078,34.788-29.324,82.646-6.756,119.614c2.142,3.489,6.709,4.603,10.208,2.46 c3.49-2.142,4.594-6.709,2.462-10.198v0.008c-19.387-31.7-17.45-72.962,5.782-102.771c2.526-3.228,1.946-7.898-1.292-10.405 C116.48,115.399,111.811,115.979,109.303,119.216z"></path> <path class="st0" d="M501.499,438.591L363.341,315.178l-47.98,47.98l123.403,138.168c12.548,16.234,35.144,13.848,55.447-6.456 C514.505,474.576,517.743,451.138,501.499,438.591z"></path> </g> </g></svg>
+                        Detecção de viés e inconsistências</p>
+                    <p class="flex items-center">
+                        <svg class="w-8 mx-3 bg-gray-400 rounded-xs" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 5V19C4 19.5523 4.44772 20 5 20H19" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        Resultados rápidos e gratuitos
+                    </p>
+                </div>
+                <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-full  rounded-lg shadow-xl shadow-black bg-white dark:bg-gray-900 mt-12">
+                    <form action="{% url 'analise' %}" method="post">
+                        {% csrf_token %}
 
-    <div class="container px-6 py-16 mx-auto text-center">
-        <div class="max-w-lg mx-auto">
-            <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Conheça agora seu mais novo agente de inteligência artificial para análise de notícias:</h1>
-            <h1 class="text-3xl font-semibold text-green-500 dark:text-green-500 lg:text-5xl">News AI Reviewer</h1>
-            <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia e verifique a qualidade da mesma por meio de dados e inteligência</p>
-            <button class="px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-green-600 rounded-lg hover:bg-green-500 lg:mx-0 lg:w-auto focus:outline-none">
-                Analisar Agora!
-            </button>
-        </div>
+                        {{form}}
 
-        <div class="flex justify-center mt-10">
-            <img class="object-cover w-full h-96 rounded-xl lg:w-4/5" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" />
-        </div>
-    </div>
-</section>
-    
-    <p>adicione seu texto e então a IA irá realizar a análise de sentimentos do texto</p>
+                        <input type="submit" value="Enviar" class="px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+                    </form>
 
-    <form action="{% url 'analise' %}" method="post">
-        {% csrf_token %}
+                    {% if mostrar_grafico %}
+                    <div style="width: 300px; height: 300px;">
+                        <canvas id="myChart"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            const ctx = document.getElementById('myChart');
 
-        {{form}}
-
-        <input type="submit" value="Enviar">
-    </form>
-    
-    {% if mostrar_grafico %}
-        <div style="width: 300px; height: 300px;">
-            <canvas id="myChart"></canvas>
-            
-
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                <script>
-                    const ctx = document.getElementById('myChart');
-
-                    new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                        labels: ['Palavras Positivas', 'Palavras Negativas'],
-                        datasets: [{
-                            label: '#Quantidade de palavras',
-                            data: [{{positivos}}, {{negativos}}],
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(34, 197, 94, 0.7)',
-                                'rgba(239, 68, 68, 0.7)' 
-                            ],
-                            borderColor: [
-                                'rgba(21, 128, 61, 1)',     
-                                'rgba(185, 28, 28, 1)' 
-                            ]
-                        }]
-                        },
-                        options: {
-                        scales: {
-                            y: {
-                            beginAtZero: true
+                            new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    labels: ['Palavras Positivas', 'Palavras Negativas'],
+                                    datasets: [{
+                                        label: '#Quantidade de palavras',
+                                        data: [{{ positivos }}, {{ negativos }}],
+                                borderWidth: 1,
+                                backgroundColor: [
+                                    'rgba(34, 197, 94, 0.7)',
+                                    'rgba(239, 68, 68, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(21, 128, 61, 1)',
+                                    'rgba(185, 28, 28, 1)'
+                                ]
+                            }]
+                                        },
+                                options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
                             }
-                        }
-                        }
-                    });
-                </script>
-        </div>
-    {% endif %}
-
-    <header class="bg-white dark:bg-gray-900">
-    <div class="lg:flex">
-        <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
-            <div class="max-w-xl">
-                <h2 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Sobre o <span class="text-blue-600 dark:text-blue-400">News AI Reviewer</span></h2>
-
-                <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.</p>
-
-                <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-700">Get Started</a>
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Learn More</a>
+                                    });
+                        </script>
+                    <!-- </div> --></div>
                 </div>
             </div>
         </div>
+        </div>
+        {% endif %}
+    </section>
+    <hr class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
+    <section class="bg-white dark:bg-gray-900">
+        <div class="lg:flex">
+            <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
+                <div class="max-w-xl">
+                    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Sobre o <span
+                            class="text-blue-600 dark:text-blue-400">News AI Reviewer</span></h2>
 
-        <div class="w-full h-64 lg:w-1/2 lg:h-auto">
-            <div class="w-full h-full bg-cover" style="background-image: url(https://images.unsplash.com/photo-1508394522741-82ac9c15ba69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=748&q=80)">
-                <div class="w-full h-full bg-black opacity-25"></div>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id
+                        necessitatibus odio quam quasi, quibusdam rem tempora voluptates.</p>
+
+                    <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
+                        <a href="#"
+                            class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-700">Get
+                            Started</a>
+                        <a href="#"
+                            class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Learn
+                            More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full h-64 lg:w-1/2 lg:h-auto">
+                <div class="w-full h-full bg-cover"
+                    style="background-image: url(https://images.unsplash.com/photo-1508394522741-82ac9c15ba69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=748&q=80)">
+                    <div class="w-full h-full bg-black opacity-25"></div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-
+    </section>
+    <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
     <footer class="bg-white dark:bg-gray-900">
-    <div class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
-        <a href="#">
-            <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
-        </a>
-
-        <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
-
-        <div class="flex -mx-2">
-            <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
-                    </path>
-                </svg>
+        <div
+            class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
+            <a href="#">
+                <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
             </a>
+
+            <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
+
+            <div class="flex -mx-2">
+                <a href="#"
+                    class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    aria-label="Github">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
+
 </html>
