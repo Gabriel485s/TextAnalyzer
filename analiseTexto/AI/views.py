@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .forms import IaForm
 from django.http import HttpRequest
 import string
 import nltk
@@ -11,10 +10,10 @@ nltk.download('punkt_tab')
 
 def index(request:HttpRequest):
     
-    formulario = IaForm()
-
     contexto = {
-        "form": formulario
+        "mostrar_grafico": False,
+        "positivos": 0,
+        "negativos": 0
     }
 
     return render(request, 'index.html', contexto)
@@ -25,12 +24,12 @@ def analise(request: HttpRequest):
     mostrar_grafico = False
     positivos = 0
     negativos = 0
+    texto = ""
 
     if request.method == 'POST':
-        formulario = IaForm(request.POST)
-
-        if formulario.is_valid():
-            texto = formulario.cleaned_data['texto']
+        texto = request.POST.get('texto', '').strip()
+        
+        if texto:
             minusculo = texto.lower()
 
             texto_limpo = minusculo.translate(str.maketrans('', '', string.punctuation))
@@ -46,18 +45,15 @@ def analise(request: HttpRequest):
 
             print(frase_filtrada)
 
-            positivos = 10 #valor exemplo
-            negativos = 5 #valor exemplo
+            positivos = 10
+            negativos = 5
             mostrar_grafico = True
 
-    else:
-        formulario = IaForm()
-
     contexto = {
-        "form": formulario,
         "mostrar_grafico": mostrar_grafico,
         "positivos": positivos,
-        "negativos": negativos
+        "negativos": negativos,
+        "texto": texto
     }
 
     return render(request, 'index.html', contexto)
