@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
-    
+
     <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
@@ -110,10 +110,10 @@
                 <h1 class="text-3xl font-semibold text-blue-600 dark:text-blue-400 lg:text-5xl">News AI Reviewer</h1>
                 <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia e verifique a qualidade
                     da mesma por meio de dados e inteligência</p>
-                <button
-                    class="px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+                <a href="#aianalysis"><button
+                    class="transition duration-300 transform hover:scale-110 px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none cursor-pointer active:bg-blue-800 active:border-1">
                     Analisar Agora!
-                </button>
+                </button></a>
             </div>
 
             <div class="flex justify-center mt-10">
@@ -123,33 +123,108 @@
         </div>
     </header>
     <!-- <hr class="my-12 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" /> -->
-    <hr class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
-    <section class="bg-white dark:bg-gray-900">
+    <hr
+        class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
+    <section class="bg-white dark:bg-gray-900" id="aianalysis">
         <div class="lg:flex">
             <div class="container px-6 py-16 mx-auto text-center">
-                <h2 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-5xl leading-12">Insira sua notícia e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>, <span class="text-blue-600 dark:text-blue-400">confiabilidade</span> e o <span class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!</h2>
-                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 lg:text-xl">Garanta a credibilidade das suas informações identificando viés, sentimento e possíveis sinais de desinformação.</p>
-                <div class="flex justify-evenly mt-2 text-lg text-gray-600 dark:text-gray-400 lg:text-lg text-center font-semibold">
+                <h2 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-5xl leading-12">Insira sua
+                    notícia e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>,
+                    <span class="text-blue-600 dark:text-blue-400">confiabilidade</span> e o <span
+                        class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!</h2>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 lg:text-xl">Garanta a credibilidade das suas
+                    informações identificando viés, sentimento e possíveis sinais de desinformação.</p>
+                <div
+                    class="flex justify-evenly mt-2 text-lg text-gray-600 dark:text-gray-400 lg:text-lg text-center font-semibold">
                     <p class="flex items-center">
-                        <svg class="w-8 mx-3" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#99A1AF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>ai</title> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="16" height="16" fill="none"></rect> </g> <g id="Q3_icons" data-name="Q3 icons"> <g> <path d="M45.6,18.7,41,14.9V7.5a1,1,0,0,0-.6-.9L30.5,2.1h-.4l-.6.2L24,5.9,18.5,2.2,17.9,2h-.4L7.6,6.6a1,1,0,0,0-.6.9v7.4L2.4,18.7a.8.8,0,0,0-.4.8v9H2a.8.8,0,0,0,.4.8L7,33.1v7.4a1,1,0,0,0,.6.9l9.9,4.5h.4l.6-.2L24,42.1l5.5,3.7.6.2h.4l9.9-4.5a1,1,0,0,0,.6-.9V33.1l4.6-3.8a.8.8,0,0,0,.4-.7V19.4h0A.8.8,0,0,0,45.6,18.7Zm-5.1,6.8H42v1.6l-3.5,2.8-.4.3-.4-.2a1.4,1.4,0,0,0-2,.7,1.5,1.5,0,0,0,.6,2l.7.3h0v5.4l-6.6,3.1-4.2-2.8-.7-.5V25.5H27a1.5,1.5,0,0,0,0-3H25.5V9.7l.7-.5,4.2-2.8L37,9.5v5.4h0l-.7.3a1.5,1.5,0,0,0-.6,2,1.4,1.4,0,0,0,1.3.9l.7-.2.4-.2.4.3L42,20.9v1.6H40.5a1.5,1.5,0,0,0,0,3ZM21,25.5h1.5V38.3l-.7.5-4.2,2.8L11,38.5V33.1h0l.7-.3a1.5,1.5,0,0,0,.6-2,1.4,1.4,0,0,0-2-.7l-.4.2-.4-.3L6,27.1V25.5H7.5a1.5,1.5,0,0,0,0-3H6V20.9l3.5-2.8.4-.3.4.2.7.2a1.4,1.4,0,0,0,1.3-.9,1.5,1.5,0,0,0-.6-2L11,15h0V9.5l6.6-3.1,4.2,2.8.7.5V22.5H21a1.5,1.5,0,0,0,0,3Z"></path> <path d="M13.9,9.9a1.8,1.8,0,0,0,0,2.2l2.6,2.5v2.8l-4,4v5.2l4,4v2.8l-2.6,2.5a1.8,1.8,0,0,0,0,2.2,1.5,1.5,0,0,0,1.1.4,1.5,1.5,0,0,0,1.1-.4l3.4-3.5V29.4l-4-4V22.6l4-4V13.4L16.1,9.9A1.8,1.8,0,0,0,13.9,9.9Z"></path> <path d="M31.5,14.6l2.6-2.5a1.8,1.8,0,0,0,0-2.2,1.8,1.8,0,0,0-2.2,0l-3.4,3.5v5.2l4,4v2.8l-4,4v5.2l3.4,3.5a1.7,1.7,0,0,0,2.2,0,1.8,1.8,0,0,0,0-2.2l-2.6-2.5V30.6l4-4V21.4l-4-4Z"></path> </g> </g> </g> </g></svg>
+                        <svg class="w-8 mx-3" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#99A1AF">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>ai</title>
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="invisible_box" data-name="invisible box">
+                                        <rect width="16" height="16" fill="none"></rect>
+                                    </g>
+                                    <g id="Q3_icons" data-name="Q3 icons">
+                                        <g>
+                                            <path
+                                                d="M45.6,18.7,41,14.9V7.5a1,1,0,0,0-.6-.9L30.5,2.1h-.4l-.6.2L24,5.9,18.5,2.2,17.9,2h-.4L7.6,6.6a1,1,0,0,0-.6.9v7.4L2.4,18.7a.8.8,0,0,0-.4.8v9H2a.8.8,0,0,0,.4.8L7,33.1v7.4a1,1,0,0,0,.6.9l9.9,4.5h.4l.6-.2L24,42.1l5.5,3.7.6.2h.4l9.9-4.5a1,1,0,0,0,.6-.9V33.1l4.6-3.8a.8.8,0,0,0,.4-.7V19.4h0A.8.8,0,0,0,45.6,18.7Zm-5.1,6.8H42v1.6l-3.5,2.8-.4.3-.4-.2a1.4,1.4,0,0,0-2,.7,1.5,1.5,0,0,0,.6,2l.7.3h0v5.4l-6.6,3.1-4.2-2.8-.7-.5V25.5H27a1.5,1.5,0,0,0,0-3H25.5V9.7l.7-.5,4.2-2.8L37,9.5v5.4h0l-.7.3a1.5,1.5,0,0,0-.6,2,1.4,1.4,0,0,0,1.3.9l.7-.2.4-.2.4.3L42,20.9v1.6H40.5a1.5,1.5,0,0,0,0,3ZM21,25.5h1.5V38.3l-.7.5-4.2,2.8L11,38.5V33.1h0l.7-.3a1.5,1.5,0,0,0,.6-2,1.4,1.4,0,0,0-2-.7l-.4.2-.4-.3L6,27.1V25.5H7.5a1.5,1.5,0,0,0,0-3H6V20.9l3.5-2.8.4-.3.4.2.7.2a1.4,1.4,0,0,0,1.3-.9,1.5,1.5,0,0,0-.6-2L11,15h0V9.5l6.6-3.1,4.2,2.8.7.5V22.5H21a1.5,1.5,0,0,0,0,3Z">
+                                            </path>
+                                            <path
+                                                d="M13.9,9.9a1.8,1.8,0,0,0,0,2.2l2.6,2.5v2.8l-4,4v5.2l4,4v2.8l-2.6,2.5a1.8,1.8,0,0,0,0,2.2,1.5,1.5,0,0,0,1.1.4,1.5,1.5,0,0,0,1.1-.4l3.4-3.5V29.4l-4-4V22.6l4-4V13.4L16.1,9.9A1.8,1.8,0,0,0,13.9,9.9Z">
+                                            </path>
+                                            <path
+                                                d="M31.5,14.6l2.6-2.5a1.8,1.8,0,0,0,0-2.2,1.8,1.8,0,0,0-2.2,0l-3.4,3.5v5.2l4,4v2.8l-4,4v5.2l3.4,3.5a1.7,1.7,0,0,0,2.2,0,1.8,1.8,0,0,0,0-2.2l-2.6-2.5V30.6l4-4V21.4l-4-4Z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
                         Análise de sentimento automatizada
                     </p>
                     <p class="flex items-center">
-                        <svg class="w-8 mx-3" height="48px" width="48px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#99A1AF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#99A1AF;} </style> <g> <path class="st0" d="M332.998,291.918c52.2-71.895,45.941-173.338-18.834-238.123c-71.736-71.728-188.468-71.728-260.195,0 c-71.746,71.745-71.746,188.458,0,260.204c64.775,64.775,166.218,71.034,238.104,18.844l14.222,14.203l40.916-40.916 L332.998,291.918z M278.488,278.333c-52.144,52.134-136.699,52.144-188.852,0c-52.152-52.153-52.152-136.717,0-188.861 c52.154-52.144,136.708-52.144,188.852,0C330.64,141.616,330.64,226.18,278.488,278.333z"></path> <path class="st0" d="M109.303,119.216c-27.078,34.788-29.324,82.646-6.756,119.614c2.142,3.489,6.709,4.603,10.208,2.46 c3.49-2.142,4.594-6.709,2.462-10.198v0.008c-19.387-31.7-17.45-72.962,5.782-102.771c2.526-3.228,1.946-7.898-1.292-10.405 C116.48,115.399,111.811,115.979,109.303,119.216z"></path> <path class="st0" d="M501.499,438.591L363.341,315.178l-47.98,47.98l123.403,138.168c12.548,16.234,35.144,13.848,55.447-6.456 C514.505,474.576,517.743,451.138,501.499,438.591z"></path> </g> </g></svg>
-                        Detecção de viés e inconsistências</p>
+                        <svg class="w-8 mx-3" height="48px" width="48px" version="1.1" id="_x32_"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" fill="#99A1AF">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill: #99A1AF;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="M332.998,291.918c52.2-71.895,45.941-173.338-18.834-238.123c-71.736-71.728-188.468-71.728-260.195,0 c-71.746,71.745-71.746,188.458,0,260.204c64.775,64.775,166.218,71.034,238.104,18.844l14.222,14.203l40.916-40.916 L332.998,291.918z M278.488,278.333c-52.144,52.134-136.699,52.144-188.852,0c-52.152-52.153-52.152-136.717,0-188.861 c52.154-52.144,136.708-52.144,188.852,0C330.64,141.616,330.64,226.18,278.488,278.333z">
+                                    </path>
+                                    <path class="st0"
+                                        d="M109.303,119.216c-27.078,34.788-29.324,82.646-6.756,119.614c2.142,3.489,6.709,4.603,10.208,2.46 c3.49-2.142,4.594-6.709,2.462-10.198v0.008c-19.387-31.7-17.45-72.962,5.782-102.771c2.526-3.228,1.946-7.898-1.292-10.405 C116.48,115.399,111.811,115.979,109.303,119.216z">
+                                    </path>
+                                    <path class="st0"
+                                        d="M501.499,438.591L363.341,315.178l-47.98,47.98l123.403,138.168c12.548,16.234,35.144,13.848,55.447-6.456 C514.505,474.576,517.743,451.138,501.499,438.591z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                        Detecção de viés e inconsistências
+                    </p>
                     <p class="flex items-center">
-                        <svg class="w-8 mx-3 bg-gray-400 rounded-xs" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 5V19C4 19.5523 4.44772 20 5 20H19" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <svg class="w-8 mx-3 bg-gray-400 rounded-xs" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M4 5V19C4 19.5523 4.44772 20 5 20H19" stroke="#101828" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998" stroke="#101828" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
                         Resultados rápidos e gratuitos
                     </p>
                 </div>
-                <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-full  rounded-lg shadow-xl shadow-black bg-white dark:bg-gray-900 mt-12">
-                    <form action="{% url 'analise' %}" method="post">
+                <div
+                    class="flex flex-col items-center justify-center w-full px-6 py-8  lg:h-[32rem] lg:w-full rounded-lg shadow-xl shadow-black bg-white dark:bg-gray-900 mt-12">
+                    <form action="{% url 'analise' %}" method="post" class="flex flex-col p-12 w-2/3 justify-center items-center my-8">
                         {% csrf_token %}
 
-                        <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"></textarea>
+                        <textarea name="texto" id="texto" rows="10" cols="50"
+                            placeholder="Digite seu texto aqui" class="text-white p-5 rounded-lg bg-gray-800 w-full">
+                        
+                        </textarea>
+                        <div class="flex flex-row items-start justify-start w-full">
+                            <button class=" duration-300 transition transform cursor-pointer px-10 py-4 mx-2 mt-2 font-medium leading-5 text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-2 lg:w-16 focus:outline-none active:bg-blue-800 active:border-1">
+                                <svg class="size-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 6.77273H9.2M19 6.77273H14.8M9.2 6.77273V5.5C9.2 4.94772 9.64772 4.5 10.2 4.5H13.8C14.3523 4.5 14.8 4.94772 14.8 5.5V6.77273M9.2 6.77273H14.8M6.4 8.59091V15.8636C6.4 17.5778 6.4 18.4349 6.94673 18.9675C7.49347 19.5 8.37342 19.5 10.1333 19.5H13.8667C15.6266 19.5 16.5065 19.5 17.0533 18.9675C17.6 18.4349 17.6 17.5778 17.6 15.8636V8.59091M9.2 10.4091V15.8636M12 10.4091V15.8636M14.8 10.4091V15.8636" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </button>
+                            <button class="duration-300 transition transform cursor-pointer px-10 py-4 mx-2 mt-2 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-2 lg:w-10 focus:outline-none active:bg-blue-800 active:border-1">Colar Texto</button>
+                        </div>
+                        
 
-
-                        <input type="submit" value="Enviar" class="px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+                        <input type="submit" value="Enviar"
+                            class="duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-1/2 focus:outline-none active:bg-blue-800 active:border-1">
                     </form>
 
                     {% if mostrar_grafico %}
@@ -157,9 +232,28 @@
                         <canvas id="myChart"></canvas>
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                         <script>
+
                             const ctx = document.getElementById('myChart');
 
                             new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                    datasets: [{
+                                        label: '# of Votes',
+                                        data: [12, 19, 3, 5, 2, 3],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                            /* new Chart(ctx, {
                                 type: 'pie',
                                 data: {
                                     labels: ['Palavras Positivas', 'Palavras Negativas'],
@@ -184,16 +278,18 @@
                                     }
                                 }
                             }
-                                    });
+                                    }); */
                         </script>
-                    <!-- </div> --></div>
+                        <!-- </div> -->
+                    </div>
                 </div>
             </div>
         </div>
         </div>
         {% endif %}
     </section>
-    <hr class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
+    <hr
+        class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
     <section class="bg-white dark:bg-gray-900">
         <div class="lg:flex">
             <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
@@ -224,7 +320,8 @@
             </div>
         </div>
     </section>
-    <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
+    <hr
+        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
     <footer class="bg-white dark:bg-gray-900">
         <div
             class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">

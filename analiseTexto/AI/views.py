@@ -48,7 +48,7 @@ def analise(request: HttpRequest):
             positivos = 10
             negativos = 5
             mostrar_grafico = True
-
+            
     contexto = {
         "mostrar_grafico": mostrar_grafico,
         "positivos": positivos,
