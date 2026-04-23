@@ -17,8 +17,8 @@
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
-                    <a href="#">
-                        <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                    <a href="#" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+                        IntelliNews
                     </a>
 
                     <!-- Mobile menu button -->
@@ -43,14 +43,13 @@
                     class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
                     <div
                         class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
-                        <a href="#"
+                        <a href="#aianalysis"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Analisar</a>
+                        <!-- <a href="#"
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Dados</a> -->
+                        <a href="#sobre"
                             class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Sobre</a>
-                        <a href="#"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Dados</a>
-                        <a href="#"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Teste
-                            agora!</a>
-                        <a href="#"
+                        <a href="#creditos"
                             class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Créditos</a>
                         <!-- Search Bar
                     <div class="relative mt-4 lg:mt-0 lg:mx-4">
@@ -105,19 +104,21 @@
     <header class="bg-white dark:bg-gray-900 my-12">
         <div class="container px-6 py-16 mx-auto text-center">
             <div class="max-w-lg mx-auto">
-                <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Conheça agora seu mais novo
+                <h1 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Conheça agora seu mais novo
                     agente de inteligência artificial para análise de notícias:</h1>
-                <h1 class="text-3xl font-semibold text-blue-600 dark:text-blue-400 lg:text-5xl">News AI Reviewer</h1>
+                <h1
+                    class="text-5xl font-semibold text-blue-600 dark:text-blue-400 lg:text-5xl overline mt-7 font-bold tracking-wider">
+                    IntelliNews</h1>
                 <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia e verifique a qualidade
                     da mesma por meio de dados e inteligência</p>
                 <a href="#aianalysis"><button
-                    class="transition duration-300 transform hover:scale-110 px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none cursor-pointer active:bg-blue-800 active:border-1">
-                    Analisar Agora!
-                </button></a>
+                        class="transition duration-300 transform hover:scale-110 px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none cursor-pointer active:bg-blue-800 active:border-1 hover:shadow-xl">
+                        Analisar Agora!
+                    </button></a>
             </div>
 
             <div class="flex justify-center mt-10">
-                <img class="object-cover w-full h-96 rounded-xl lg:w-4/5"
+                <img class="object-cover w-full h-96 rounded-xl lg:w-4/5 shadow-xl"
                     src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" />
             </div>
         </div>
@@ -131,7 +132,8 @@
                 <h2 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-5xl leading-12">Insira sua
                     notícia e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>,
                     <span class="text-blue-600 dark:text-blue-400">confiabilidade</span> e o <span
-                        class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!</h2>
+                        class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!
+                </h2>
                 <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 lg:text-xl">Garanta a credibilidade das suas
                     informações identificando viés, sentimento e possíveis sinais de desinformação.</p>
                 <div
@@ -208,23 +210,66 @@
                 </div>
                 <div
                     class="flex flex-col items-center justify-center w-full px-6 py-8  lg:h-[32rem] lg:w-full rounded-lg shadow-xl shadow-black bg-white dark:bg-gray-900 mt-12">
-                    <form action="{% url 'analise' %}" method="post" class="flex flex-col p-12 w-2/3 justify-center items-center my-8">
+                    <form action="{% url 'analise' %}" method="post"
+                        class="flex flex-col p-12 w-2/3 justify-center items-center my-8">
                         {% csrf_token %}
 
-                        <textarea name="texto" id="texto" rows="10" cols="50"
-                            placeholder="Digite seu texto aqui" class="text-white p-5 rounded-lg bg-gray-800 w-full">
-                        
-                        </textarea>
-                        <div class="flex flex-row items-start justify-start w-full">
-                            <button class=" duration-300 transition transform cursor-pointer px-10 py-4 mx-2 mt-2 font-medium leading-5 text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-2 lg:w-16 focus:outline-none active:bg-blue-800 active:border-1">
-                                <svg class="size-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 6.77273H9.2M19 6.77273H14.8M9.2 6.77273V5.5C9.2 4.94772 9.64772 4.5 10.2 4.5H13.8C14.3523 4.5 14.8 4.94772 14.8 5.5V6.77273M9.2 6.77273H14.8M6.4 8.59091V15.8636C6.4 17.5778 6.4 18.4349 6.94673 18.9675C7.49347 19.5 8.37342 19.5 10.1333 19.5H13.8667C15.6266 19.5 16.5065 19.5 17.0533 18.9675C17.6 18.4349 17.6 17.5778 17.6 15.8636V8.59091M9.2 10.4091V15.8636M12 10.4091V15.8636M14.8 10.4091V15.8636" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"
+                            class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
+                        <div class="flex flex-row justify-start w-full">
+                            <button title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none hover:text-red-500 capitalize bg-red-700 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1">
+                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path d="M20.5001 6H3.5" stroke="#ffffff" stroke-width="1.5"
+                                            stroke-linecap="round"></path>
+                                        <path d="M9.5 11L10 16" stroke="#ffffff" stroke-width="1.5"
+                                            stroke-linecap="round"></path>
+                                        <path d="M14.5 11L14 16" stroke="#ffffff" stroke-width="1.5"
+                                            stroke-linecap="round"></path>
+                                        <path
+                                            d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6"
+                                            stroke="#ffffff" stroke-width="1.5"></path>
+                                        <path
+                                            d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5"
+                                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+                                    </g>
+                                </svg>
                             </button>
-                            <button class="duration-300 transition transform cursor-pointer px-10 py-4 mx-2 mt-2 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-2 lg:w-10 focus:outline-none active:bg-blue-800 active:border-1">Colar Texto</button>
+                            <button title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg hover:bg-white focus:outline-none active:bg-gray-400 active:border-1">
+                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M13.7778 5H14.6667C15.5047 5 15.9237 5 16.1841 5.2636C16.4444 5.52721 16.4444 5.95147 16.4444 6.8V10M13.7778 5V5.8C13.7778 6.22426 13.7778 6.4364 13.6476 6.5682C13.5174 6.7 13.3079 6.7 12.8889 6.7H7.55556C7.13653 6.7 6.92702 6.7 6.79684 6.5682C6.66667 6.4364 6.66667 6.22426 6.66667 5.8V5M13.7778 5C13.7778 4.57574 13.7778 4.2636 13.6476 4.1318C13.5174 4 13.3079 4 12.8889 4H7.55556C7.13653 4 6.92702 4 6.79684 4.1318C6.66667 4.2636 6.66667 4.57574 6.66667 5M6.66667 5H5.77778C4.93973 5 4.5207 5 4.26035 5.2636C4 5.52721 4 5.95147 4 6.8V17.1959C4 18.0445 4 18.4687 4.26035 18.7323C4.5207 18.9959 4.93973 18.9959 5.77778 18.9959H9.77778M14 20H18C18.9428 20 19.4142 20 19.7071 19.7071C20 19.4142 20 18.9428 20 18V14C20 13.0572 20 12.5858 19.7071 12.2929C19.4142 12 18.9428 12 18 12H14C13.0572 12 12.5858 12 12.2929 12.2929C12 12.5858 12 13.0572 12 14V18C12 18.9428 12 19.4142 12.2929 19.7071C12.5858 20 13.0572 20 14 20Z"
+                                            stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </button>
+                            <button title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg hover:bg-white focus:outline-none active:bg-gray-400 active:border-1">
+                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M15 21H9C6.17157 21 4.75736 21 3.87868 20.1213C3 19.2426 3 17.8284 3 15M21 15C21 17.8284 21 19.2426 20.1213 20.1213C19.8215 20.4211 19.4594 20.6186 19 20.7487"
+                                            stroke="#464455" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                        <path d="M12 16V3M12 3L16 7.375M12 3L8 7.375" stroke="#464455"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </button>
                         </div>
-                        
 
-                        <input type="submit" value="Enviar"
-                            class="duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-1/2 focus:outline-none active:bg-blue-800 active:border-1">
+
+                        <input title="Enviar notícia para análise" type="submit" value="Enviar"
+                            class="hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-1/2 focus:outline-none active:bg-blue-800 active:border-1">
                     </form>
 
                     {% if mostrar_grafico %}
@@ -290,12 +335,13 @@
     </section>
     <hr
         class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
-    <section class="bg-white dark:bg-gray-900">
+    <section id="sobre" class="bg-white dark:bg-gray-900">
         <div class="lg:flex">
             <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
                 <div class="max-w-xl">
                     <h2 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Sobre o <span
-                            class="text-blue-600 dark:text-blue-400">News AI Reviewer</span></h2>
+                            class="text-blue-600 dark:text-blue-400 font-bold overline tracking-widest">IntelliNews</span>
+                    </h2>
 
                     <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet,
                         consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id
@@ -322,6 +368,97 @@
     </section>
     <hr
         class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
+    <section id="creditos" class="bg-white dark:bg-gray-900">
+        <div class="container px-6 py-10 mx-auto">
+            <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Nosso
+                Time de Desenvolvimento</h1>
+
+            <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error
+                alias, adipisci rem similique, at omnis eligendi optio eos harum.
+            </p>
+
+            <div class="flex flex-row justify-evenly">
+                <div
+                    class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                    <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
+                        src="/imagens/gabriel.jpeg"
+                        alt="">
+
+                    <h1
+                        class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+                        gabriel soares</h1>
+
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">design
+                        director</p>
+
+                    <div class="flex mt-3 -mx-2 items-center">
+                        <a href="#"
+                            class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                            aria-label="Linkedin">
+                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                            </svg>
+                        </a>
+
+
+
+                        <a href="#"
+                            class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                            aria-label="Github">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                    <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
+                        src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                        alt="">
+
+                    <h1
+                        class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+                        Heitor Janko</h1>
+
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Lead Developer
+                    </p>
+
+                    <div class="flex mt-3 -mx-2 items-center">
+                        <a href="#"
+                            class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                            aria-label="Linkedin">
+                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                            </svg>
+                        </a>
+
+                        <a href="#"
+                            class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                            aria-label="Github">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr
+        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
     <footer class="bg-white dark:bg-gray-900">
         <div
             class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
@@ -329,7 +466,7 @@
                 <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
             </a>
 
-            <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2026. Todos os direitos reservados.</p>
 
             <div class="flex -mx-2">
                 <a href="#"
