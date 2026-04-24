@@ -43,17 +43,18 @@ def analise(request: HttpRequest):
                 if frase not in stop_words:
                     frase_filtrada.append(frase)
 
+
             print(frase_filtrada)
 
             positivos = 10
             negativos = 5
             mostrar_grafico = True
             
+            return render(request, "result.html", {"noticia": texto})
     contexto = {
         "mostrar_grafico": mostrar_grafico,
         "positivos": positivos,
         "negativos": negativos,
         "texto": texto
     }
-
     return render(request, 'index.html', contexto)

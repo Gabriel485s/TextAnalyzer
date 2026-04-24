@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Reviewer</title>
+    <title>IntelliNews</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
 
@@ -13,7 +13,7 @@
 
 <body class="bg-white dark:bg-gray-900">
 
-    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full">
+    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-10">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
@@ -44,49 +44,14 @@
                     <div
                         class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
                         <a href="#aianalysis"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Analisar</a>
-                        <!-- <a href="#"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Dados</a> -->
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Analisar</a>
                         <a href="#sobre"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Sobre</a>
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Sobre</a>
                         <a href="#creditos"
-                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Créditos</a>
-                        <!-- Search Bar
-                    <div class="relative mt-4 lg:mt-0 lg:mx-4">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </span>
-    
-                        <input type="text" class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search">
+                            class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Créditos</a>
                     </div>
-                    -->
-                    </div>
-
-                    <!-- 
-                Logo href Reddit
-                <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
-                    <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM6.807 10.543C6.20862 10.5433 5.67102 10.9088 5.45054 11.465C5.23006 12.0213 5.37133 12.6558 5.807 13.066C5.92217 13.1751 6.05463 13.2643 6.199 13.33C6.18644 13.4761 6.18644 13.6229 6.199 13.769C6.199 16.009 8.814 17.831 12.028 17.831C15.242 17.831 17.858 16.009 17.858 13.769C17.8696 13.6229 17.8696 13.4761 17.858 13.33C18.4649 13.0351 18.786 12.3585 18.6305 11.7019C18.475 11.0453 17.8847 10.5844 17.21 10.593H17.157C16.7988 10.6062 16.458 10.7512 16.2 11C15.0625 10.2265 13.7252 9.79927 12.35 9.77L13 6.65L15.138 7.1C15.1931 7.60706 15.621 7.99141 16.131 7.992C16.1674 7.99196 16.2038 7.98995 16.24 7.986C16.7702 7.93278 17.1655 7.47314 17.1389 6.94094C17.1122 6.40873 16.6729 5.991 16.14 5.991C16.1022 5.99191 16.0645 5.99491 16.027 6C15.71 6.03367 15.4281 6.21641 15.268 6.492L12.82 6C12.7983 5.99535 12.7762 5.993 12.754 5.993C12.6094 5.99472 12.4851 6.09583 12.454 6.237L11.706 9.71C10.3138 9.7297 8.95795 10.157 7.806 10.939C7.53601 10.6839 7.17843 10.5422 6.807 10.543ZM12.18 16.524C12.124 16.524 12.067 16.524 12.011 16.524C11.955 16.524 11.898 16.524 11.842 16.524C11.0121 16.5208 10.2054 16.2497 9.542 15.751C9.49626 15.6958 9.47445 15.6246 9.4814 15.5533C9.48834 15.482 9.52348 15.4163 9.579 15.371C9.62737 15.3318 9.68771 15.3102 9.75 15.31C9.81233 15.31 9.87275 15.3315 9.921 15.371C10.4816 15.7818 11.159 16.0022 11.854 16C11.9027 16 11.9513 16 12 16C12.059 16 12.119 16 12.178 16C12.864 16.0011 13.5329 15.7863 14.09 15.386C14.1427 15.3322 14.2147 15.302 14.29 15.302C14.3653 15.302 14.4373 15.3322 14.49 15.386C14.5985 15.4981 14.5962 15.6767 14.485 15.786V15.746C13.8213 16.2481 13.0123 16.5208 12.18 16.523V16.524ZM14.307 14.08H14.291L14.299 14.041C13.8591 14.011 13.4994 13.6789 13.4343 13.2429C13.3691 12.8068 13.6162 12.3842 14.028 12.2269C14.4399 12.0697 14.9058 12.2202 15.1478 12.5887C15.3899 12.9572 15.3429 13.4445 15.035 13.76C14.856 13.9554 14.6059 14.0707 14.341 14.08H14.306H14.307ZM9.67 14C9.11772 14 8.67 13.5523 8.67 13C8.67 12.4477 9.11772 12 9.67 12C10.2223 12 10.67 12.4477 10.67 13C10.67 13.5523 10.2223 14 9.67 14Z">
-                            </path>
-                        </svg>
-                    </a>
-        
-                Logo href Facebook
-                    <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Facebook">
-                        
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
-                            </path>
-                        </svg>
-                    </a>
-                -->
                     <a href="https://github.com/Gabriel485s/TextAnalyzer"
-                        class="flex align-items-center gap-2 mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 row"
+                        class="flex items-center gap-2 mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-white row"
                         aria-label="Github">
                         Projeto GitHub
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
@@ -123,7 +88,6 @@
             </div>
         </div>
     </header>
-    <!-- <hr class="my-12 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" /> -->
     <hr
         class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
     <section class="bg-white dark:bg-gray-900" id="aianalysis">
@@ -218,59 +182,30 @@
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
                         <div class="flex flex-row justify-start w-full">
                             <button title="" type="button"
-                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none hover:text-red-500 capitalize bg-red-700 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1">
-                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M20.5001 6H3.5" stroke="#ffffff" stroke-width="1.5"
-                                            stroke-linecap="round"></path>
-                                        <path d="M9.5 11L10 16" stroke="#ffffff" stroke-width="1.5"
-                                            stroke-linecap="round"></path>
-                                        <path d="M14.5 11L14 16" stroke="#ffffff" stroke-width="1.5"
-                                            stroke-linecap="round"></path>
-                                        <path
-                                            d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6"
-                                            stroke="#ffffff" stroke-width="1.5"></path>
-                                        <path
-                                            d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5"
-                                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
-                                    </g>
-                                </svg>
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1">
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg>
                             </button>
                             <button title="" type="button"
-                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg hover:bg-white focus:outline-none active:bg-gray-400 active:border-1">
-                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M13.7778 5H14.6667C15.5047 5 15.9237 5 16.1841 5.2636C16.4444 5.52721 16.4444 5.95147 16.4444 6.8V10M13.7778 5V5.8C13.7778 6.22426 13.7778 6.4364 13.6476 6.5682C13.5174 6.7 13.3079 6.7 12.8889 6.7H7.55556C7.13653 6.7 6.92702 6.7 6.79684 6.5682C6.66667 6.4364 6.66667 6.22426 6.66667 5.8V5M13.7778 5C13.7778 4.57574 13.7778 4.2636 13.6476 4.1318C13.5174 4 13.3079 4 12.8889 4H7.55556C7.13653 4 6.92702 4 6.79684 4.1318C6.66667 4.2636 6.66667 4.57574 6.66667 5M6.66667 5H5.77778C4.93973 5 4.5207 5 4.26035 5.2636C4 5.52721 4 5.95147 4 6.8V17.1959C4 18.0445 4 18.4687 4.26035 18.7323C4.5207 18.9959 4.93973 18.9959 5.77778 18.9959H9.77778M14 20H18C18.9428 20 19.4142 20 19.7071 19.7071C20 19.4142 20 18.9428 20 18V14C20 13.0572 20 12.5858 19.7071 12.2929C19.4142 12 18.9428 12 18 12H14C13.0572 12 12.5858 12 12.2929 12.2929C12 12.5858 12 13.0572 12 14V18C12 18.9428 12 19.4142 12.2929 19.7071C12.5858 20 13.0572 20 14 20Z"
-                                            stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg text-gray-900 hover:text-gray-200 hover:bg-blue-600 focus:outline-none active:bg-blue-700 active:border-1">
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg>
                             </button>
                             <button title="" type="button"
-                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg hover:bg-white focus:outline-none active:bg-gray-400 active:border-1">
-                                <svg class="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M15 21H9C6.17157 21 4.75736 21 3.87868 20.1213C3 19.2426 3 17.8284 3 15M21 15C21 17.8284 21 19.2426 20.1213 20.1213C19.8215 20.4211 19.4594 20.6186 19 20.7487"
-                                            stroke="#464455" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                        <path d="M12 16V3M12 3L16 7.375M12 3L8 7.375" stroke="#464455"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize text-gray-900 hover:text-gray-200 bg-gray-200 rounded-lg hover:bg-blue-600 focus:outline-none active:bg-blue-700 active:border-1">
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+</svg>
                             </button>
                         </div>
-
-
-                        <input title="Enviar notícia para análise" type="submit" value="Enviar"
-                            class="hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-1/2 focus:outline-none active:bg-blue-800 active:border-1">
-                    </form>
+                        <a href="result.html" class="w-full">
+                            <input title="Enviar notícia para análise" type="submit" value="Enviar" class="w-1/2 hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0  focus:outline-none active:bg-blue-800 active:border-1">
+                        </a>
+                        </form>
 
                     {% if mostrar_grafico %}
                     <div style="width: 300px; height: 300px;">
@@ -359,7 +294,7 @@
             </div>
 
             <div class="w-full h-64 lg:w-1/2 lg:h-auto">
-                <div class="w-full h-full bg-cover"
+                <div class="w-full h-full"
                     style="background-image: url(https://images.unsplash.com/photo-1508394522741-82ac9c15ba69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=748&q=80)">
                     <div class="w-full h-full bg-black opacity-25"></div>
                 </div>
@@ -381,8 +316,9 @@
             <div class="flex flex-row justify-evenly">
                 <div
                     class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                    {% load static %}
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                        src="/imagens/gabriel.jpeg"
+                        src="{% static 'imagens/gabriel.jpeg' %}"
                         alt="">
 
                     <h1
@@ -393,7 +329,7 @@
                         director</p>
 
                     <div class="flex mt-3 -mx-2 items-center">
-                        <a href="#"
+                        <a href="https://www.linkedin.com/in/gabriel-soares-de-oliveira-019a6a380/"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Linkedin">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -405,7 +341,7 @@
 
 
 
-                        <a href="#"
+                        <a href="https://github.com/Gabriel485s"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Github">
                             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
@@ -421,7 +357,7 @@
                 <div
                     class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                        src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                        src="{% static 'imagens/heitor.png' %}"
                         alt="">
 
                     <h1
@@ -432,7 +368,7 @@
                     </p>
 
                     <div class="flex mt-3 -mx-2 items-center">
-                        <a href="#"
+                        <a href="https://www.linkedin.com/in/heitorcjanko/"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Linkedin">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -442,7 +378,7 @@
                             </svg>
                         </a>
 
-                        <a href="#"
+                        <a href="https://github.com/HelloBigBoi124"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Github">
                             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
@@ -462,14 +398,14 @@
     <footer class="bg-white dark:bg-gray-900">
         <div
             class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
-            <a href="#">
-                <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+            <a href="#" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+                IntelliNews
             </a>
 
             <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2026. Todos os direitos reservados.</p>
 
             <div class="flex -mx-2">
-                <a href="#"
+                <a href="https://github.com/Gabriel485s/TextAnalyzer"
                     class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                     aria-label="Github">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
