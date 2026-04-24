@@ -12,7 +12,24 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
-        <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-10">
+        <div
+        class="flex justify-center fixed items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl inset-0 bg-gray-200/20">
+        <svg class="animate-spin size-75 z-10" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"
+            class="hds-flight-icon--animation-loading">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd">
+                    <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2">
+                    </path>
+                    <path
+                        d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z">
+                    </path>
+                </g>
+            </g>
+        </svg>
+    </div>
+    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-8">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
@@ -66,19 +83,65 @@
         </div>
         </div>
     </nav>
+
     <header class="bg-white dark:bg-gray-900 mt-20">
-        <div class="flex justify-center items-center px-6 py-16 mx-12 border-1 border-gray-700 rounded-lg text-center shadow-xl">
+        <div
+            class="flex justify-center items-center px-6 py-16 mx-12 border-1 border-gray-700 rounded-lg text-center shadow-xl">
             <h1 class="text-5xl text-gray-900 dark:text-gray-200 tracking-widest font-bold">RESULTADOS</h1>
         </div>
-    </header >
+    </header>
     <section class="bg-white dark:bg-gray-900 my-5">
-        <div class="flex justify-center items-center px-6 py-16 mx-20 border-1 border-gray-700 rounded-lg text-center shadow-xl h-full">
-            <svg class="animate-spin size-24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" class="hds-flight-icon--animation-loading"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
+        <div
+            class="flex flex-col px-6 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl h-full">
             <div>
                 <p class="animate-pulse">{{ noticia }}</p>
             </div>
+            <div class="w-full max-w-md  animate-pulse p-9">
+                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            </div>
+            <div class="w-full max-w-md  animate-pulse p-9">
+                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            </div>
+            <div class="w-full max-w-md  animate-pulse p-9">
+                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            </div>
+            <div class="w-full max-w-md  animate-pulse p-9">
+                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            </div>
+            <div class="w-full max-w-md  animate-pulse p-9">
+                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            </div>
+
+            
+
         </div>
     </section>
-    
+
 </body>
+
 </html>
