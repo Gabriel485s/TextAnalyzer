@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Reviewer</title>
+    <title>IntelliNews - Resultados</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
 
     </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900">
-        <div
-        class="flex justify-center fixed items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl inset-0 bg-gray-200/20">
+<body class="bg-white dark:bg-gray-900 flex flex-col min-h-screen">
+    <div
+        class="loading-ui flex justify-center fixed items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
         <svg class="animate-spin size-75 z-10" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"
             class="hds-flight-icon--animation-loading">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -33,7 +33,7 @@
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
-                    <a href="#" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+                    <a href="{% url 'index' %}" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
                         IntelliNews
                     </a>
 
@@ -59,11 +59,11 @@
                     class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
                     <div
                         class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
-                        <a href="index.html/#aianalysis"
+                        <a href="{% url 'index' %}#aianalysis"
                             class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Analisar</a>
-                        <a href="index.html/#sobre"
+                        <a href="{% url 'index' %}#sobre"
                             class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Sobre</a>
-                        <a href="index.html/#creditos"
+                        <a href="{% url 'index' %}#creditos"
                             class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-white">Créditos</a>
 
                     </div>
@@ -86,62 +86,235 @@
 
     <header class="bg-white dark:bg-gray-900 mt-20">
         <div
-            class="flex justify-center items-center px-6 py-16 mx-12 border-1 border-gray-700 rounded-lg text-center shadow-xl">
-            <h1 class="text-5xl text-gray-900 dark:text-gray-200 tracking-widest font-bold">RESULTADOS</h1>
+            class="flex justify-center items-center px-6 py-10 mx-12 border-1 border-gray-700 rounded-lg text-center shadow-xl">
+            <h1 class="text-5xl text-gray-900 dark:text-gray-200 tracking-widest font-bold animate-pulse">RESULTADOS
+            </h1>
         </div>
     </header>
     <section class="bg-white dark:bg-gray-900 my-5">
+
+        <!-- SKELETON LOADER -->
         <div
-            class="flex flex-col px-6 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl h-full">
-            <div>
-                <p class="animate-pulse">{{ noticia }}</p>
+            class="flex flex-row justify-between items-center px-16 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl min-h-full skeleton-loader">
+            <div class="flex flex-col">
+                <div class=" w-full max-w-md animate-pulse p-9">
+                    <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                    <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div class="w-full max-w-md animate-pulse p-9">
+                    <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                    <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
             </div>
-            <div class="w-full max-w-md  animate-pulse p-9">
-                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+            <div class="flex flex-col">
+                <div class=" w-full max-w-md animate-pulse p-9">
+                    <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
 
-                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div class="w-full max-w-md animate-pulse p-9">
+                    <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+
+                    <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
             </div>
-            <div class="w-full max-w-md  animate-pulse p-9">
-                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+            <div class="container px-6 py-10 mx-auto animate-pulse">
+                <div class="mt-8 xl:mt-12">
+                    <div class="w-full ">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
 
-                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                        <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                        <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    </div>
+                </div>
             </div>
-            <div class="w-full max-w-md  animate-pulse p-9">
-                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
-
-                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-            </div>
-            <div class="w-full max-w-md  animate-pulse p-9">
-                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
-
-                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-            </div>
-            <div class="w-full max-w-md  animate-pulse p-9">
-                <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
-
-                <p class="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-                <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
-            </div>
-
-            
-
         </div>
+
+        <!-- REAL CONTENT -->
+        <div
+            class="hidden flex flex-row justify-between items-center px-16 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl min-h-full w- real-content">
+            <div class="flex flex-col">
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Acurácia: ---%</h1>
+
+                    <p class=" mt-2">A acurácia em Inteligência Artificial (IA) serve fundamentalmente para medir
+                        o desempenho
+                        e a taxa de acerto de um modelo de classificação.</p>
+                </div>
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Precisão: ---%</h1>
+
+                    <p class=" mt-2">A precisão em IA mede quantas previsões positivas feitas pelo modelo estão
+                        corretas, indicando a confiabilidade dos resultados positivos.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <div class=" max-w-xs  p-9 text-gray-200">
+                    <h1 class="font-bold">Tempo de Previsão: --- segundos</h1>
+
+                    <p class=" mt-2">O tempo de previsão em IA indica quanto tempo o modelo leva para analisar dados e
+                        gerar uma resposta.</p>
+                </div>
+
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Tempo de Treinamento: --- segundos</h1>
+
+                    <p class=" mt-2">O tempo de treinamento em IA representa quanto tempo o modelo leva para aprender
+                        com os dados.</p>
+                </div>
+            </div>
+            <div class="flex flex-1">
+                <div
+                    class="h-2xl min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
+                </div>
+                <div class="container px-16 py-5 mx-auto">
+                    <div class="">
+                        <div class="flex flex-row mb-3 justify-center">
+                                <button id="pizza-btn" title="" type="button"
+                                    class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12 capitalize text-gray-200 hover:text-gray-200 bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none ease-in-out active:translate-y-1">
+                                    Gráfico de Pizza
+                                </button>
+                                <button id="tower-btn" title="" type="button"
+                                    class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12  capitalize text-gray-200 hover:text-gray-200 bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none ease-in-out active:translate-y-1">
+                                    Gráfico de Torre
+                                </button>
+                            </div>
+                        <div class="w-full text-gray-200">
+                            <div class="w-full h-72 bg-gray-100 rounded-lg md:h-72 dark:bg-gray-800">
+
+                                <div>
+                                    <canvas id="myChart"></canvas>
+                                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                    <script>
+                                        let chart
+                                        const ctx = document.getElementById('myChart');
+                                        const pizzaBtn = document.getElementById('pizza-btn')
+                                        const towerBtn = document.getElementById('tower-btn')
+                                        const showTowerGraph = () => {
+                                            if(chart) {
+                                                chart.destroy()
+                                            }
+
+                                            chart = new Chart(ctx, {
+                                                type: 'bar',
+                                                data: {
+                                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                                    datasets: [{
+                                                        label: '# of Votes',
+                                                        data: [12, 19, 3, 5, 2, 3],
+                                                        borderWidth: 1
+                                                    }]
+                                                },
+                                                options: {
+                                                    scales: {
+                                                        y: {
+                                                            beginAtZero: true
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                        }
+
+                                        const showPizzaGraph = () => {
+                                            if(chart) {
+                                                chart.destroy()
+                                            }
+
+                                            chart = new Chart(ctx, {
+                                                type: 'pie',
+                                                data: {
+                                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                                    datasets: [{
+                                                        label: '#Quantidade de palavras',
+                                                        data: [12, 19, 3, 5, 2, 3],
+                                                        borderWidth: 1,
+                                                        backgroundColor: [
+                                                            'rgba(34, 197, 94, 0.7)',
+                                                            'rgba(239, 68, 68, 0.7)'
+                                                        ],
+                                                        borderColor: [
+                                                            'rgba(21, 128, 61, 1)',
+                                                            'rgba(185, 28, 28, 1)'
+                                                        ]
+                                                    }]
+                                                },
+                                                options: {
+                                                    responsive: true,
+                                                    maintainAspectRatio: false,
+                                                    radius: '85%'
+                                                }
+                                            });
+                                        }
+                                        
+                                        window.onload = showTowerGraph()
+
+                                        pizzaBtn.addEventListener('click', showPizzaGraph)
+                                        towerBtn.addEventListener('click', showTowerGraph)
+
+                                    </script>
+                                </div>
+                            </div>
+                            <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+                            <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                const skeletonContent = document.querySelector(".skeleton-loader")
+                const realContent = document.querySelector(".real-content")
+                const loadingUI = document.querySelector(".loading-ui")
+
+                setTimeout(() => {
+                    setTimeout(() => {
+                        loadingUI.style.display = "none"
+                    }, 1500)
+                    skeletonContent.style.display = "none"
+                    realContent.style.display = "flex"
+                }, 2000)
+            </script>
     </section>
 
+    <footer class="bg-white dark:bg-gray-900">
+        <div
+            class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
+            <a href="{% url 'index' %}" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+                IntelliNews
+            </a>
+
+            <p class="text-sm text-gray-600 dark:text-gray-300">© Copyright 2026. Todos os direitos reservados.</p>
+
+            <div class="flex -mx-2">
+                <a href="https://github.com/Gabriel485s/TextAnalyzer"
+                    class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    aria-label="Github">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

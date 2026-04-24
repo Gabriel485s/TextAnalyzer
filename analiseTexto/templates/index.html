@@ -181,92 +181,80 @@
                         <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
                         <div class="flex flex-row justify-start w-full">
-                            <button title="" type="button"
+                            <button id="clear-btn" title="" type="button"
                                 class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1">
-                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-</svg>
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                    <path
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                </svg>
                             </button>
-                            <button title="" type="button"
+                            <button id="paste-btn" title="" type="button"
                                 class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg text-gray-900 hover:text-gray-200 hover:bg-blue-600 focus:outline-none active:bg-blue-700 active:border-1">
-                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-</svg>
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                                </svg>
                             </button>
-                            <button title="" type="button"
+                            <button id="upload-btn" title="" type="button"
                                 class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize text-gray-900 hover:text-gray-200 bg-gray-200 rounded-lg hover:bg-blue-600 focus:outline-none active:bg-blue-700 active:border-1">
-                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-  <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
-</svg>
+                                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path
+                                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                                    <path
+                                        d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z" />
+                                </svg>
                             </button>
                         </div>
-                        <a href="result.html" class="w-full">
-                            <input title="Enviar notícia para análise" type="submit" value="Enviar" class="w-1/2 hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0  focus:outline-none active:bg-blue-800 active:border-1">
-                        </a>
-                        </form>
+                        <script>
+                            
+                            const clearBtn = document.getElementById("clear-btn")
+                            const pasteBtn = document.getElementById("paste-btn")
+                            const uploadBtn = document.getElementById("upload-btn")
+                            const taNews = document.getElementById("texto")
+
+                            const clearText = () => {
+                                taNews.value = ""
+                            }
+
+                            const pasteText = () => {
+                                navigator.clipboard.readText()
+                                    .then(text => {
+                                        taNews.value = text
+                                    })
+                                    .catch(err => {
+                                        console.error('Erro ao ler a área de transferência: ', err);
+                                    });
+
+                            }
+
+                            const uploadArchive = () => {
+                                /*Tem que fazer ainda :(*/
+                            }
+
+                            clearBtn.addEventListener("click", clearText)
+                            pasteBtn.addEventListener("click", pasteText)
+                            uploadBtn.addEventListener("click", uploadArchive)
+
+                        </script>
+
+                            <input title="Enviar notícia para análise" type="submit" value="Enviar"
+                                class="w-1/2 hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0  focus:outline-none active:bg-blue-800 active:border-1">
+    
+                    </form>
 
                     {% if mostrar_grafico %}
-                    <div style="width: 300px; height: 300px;">
-                        <canvas id="myChart"></canvas>
-                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                        <script>
-
-                            const ctx = document.getElementById('myChart');
-
-                            new Chart(ctx, {
-                                type: 'bar',
-                                data: {
-                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                    datasets: [{
-                                        label: '# of Votes',
-                                        data: [12, 19, 3, 5, 2, 3],
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true
-                                        }
-                                    }
-                                }
-                            });
-                            /* new Chart(ctx, {
-                                type: 'pie',
-                                data: {
-                                    labels: ['Palavras Positivas', 'Palavras Negativas'],
-                                    datasets: [{
-                                        label: '#Quantidade de palavras',
-                                        data: [{{ positivos }}, {{ negativos }}],
-                                borderWidth: 1,
-                                backgroundColor: [
-                                    'rgba(34, 197, 94, 0.7)',
-                                    'rgba(239, 68, 68, 0.7)'
-                                ],
-                                borderColor: [
-                                    'rgba(21, 128, 61, 1)',
-                                    'rgba(185, 28, 28, 1)'
-                                ]
-                            }]
-                                        },
-                                options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                                    }); */
-                        </script>
-                        <!-- </div> -->
-                    </div>
+                    {% endif %}
+                         </div>
                 </div>
             </div>
         </div>
         </div>
-        {% endif %}
+        </div>
     </section>
     <hr
         class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
@@ -278,17 +266,18 @@
                             class="text-blue-600 dark:text-blue-400 font-bold overline tracking-widest">IntelliNews</span>
                     </h2>
 
-                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id
-                        necessitatibus odio quam quasi, quibusdam rem tempora voluptates.</p>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Saiba mais sobre o funcionamento do IntelliNews explorando nosso repositório no GitHub, onde você pode conferir detalhes da implementação, tecnologias utilizadas e toda a lógica por trás do sistema</p>
 
                     <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                        <a href="#"
-                            class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-700">Get
-                            Started</a>
-                        <a href="#"
-                            class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Learn
-                            More</a>
+                        <a href="https://github.com/Gabriel485s/TextAnalyzer"
+                            class="flex flex-row px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                        </path>
+                    </svg>
+                            Ver mais</a>
                     </div>
                 </div>
             </div>
@@ -309,8 +298,7 @@
                 Time de Desenvolvimento</h1>
 
             <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error
-                alias, adipisci rem similique, at omnis eligendi optio eos harum.
+                Conheça as mentes criativas e desenvolvedoras por trás do IntelliNews, responsáveis por transformar tecnologia em inteligência!
             </p>
 
             <div class="flex flex-row justify-evenly">
@@ -318,22 +306,20 @@
                     class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
                     {% load static %}
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                        src="{% static 'imagens/gabriel.jpeg' %}"
-                        alt="">
+                        src="{% static 'imagens/gabriel.jpeg' %}" alt="">
 
                     <h1
                         class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                         gabriel soares</h1>
 
-                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">design
-                        director</p>
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend Developer</p>
 
                     <div class="flex mt-3 -mx-2 items-center">
                         <a href="https://www.linkedin.com/in/gabriel-soares-de-oliveira-019a6a380/"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Linkedin">
-                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
                             </svg>
@@ -357,22 +343,21 @@
                 <div
                     class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                        src="{% static 'imagens/heitor.png' %}"
-                        alt="">
+                        src="{% static 'imagens/heitor.png' %}" alt="">
 
                     <h1
                         class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                         Heitor Janko</h1>
 
-                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Lead Developer
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">UI/UX Designer & Developer
                     </p>
 
                     <div class="flex mt-3 -mx-2 items-center">
                         <a href="https://www.linkedin.com/in/heitorcjanko/"
                             class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                             aria-label="Linkedin">
-                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
                             </svg>
@@ -419,5 +404,4 @@
         </div>
     </footer>
 </body>
-
 </html>
