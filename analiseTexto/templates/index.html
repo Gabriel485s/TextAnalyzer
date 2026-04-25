@@ -12,8 +12,37 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
+    <div id="clear-confirm"  class="fixed inset-0 flex justify-center items-center transition-all transition-opacity transform duration-1000 -translate-y-full ease-out z-50 opacity-0">
+        <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
+            <div class="flex items-center justify-center w-12 bg-red-500 text-gray-100 bg-clear">
+                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path
+                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                    <path
+                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                </svg>
+            </div>
+    
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-red-500 dark:text-red-500 title-clear">Apagar conteúdo</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-100 desc-clear">
+                        Tem certeza que deseja apagar o conteúdo?
+                    </p>
+                    <div class="flex flex-row justify-evenly mt-2 btns-clear">
+                        <button id="clear-confirm-btn"
+                            class="py-1 px-2 text-gray-900 bg-gray-200 rounded-xl transition-all ease-in-out duration-100 hover:text-white hover:bg-red-500 active:bg-red-700 hover:font-semibold">Apagar</button>
+                        <button id="clear-cancel-btn"
+                            class="py-1 px-2 text-gray-200 bg-gray-700 rounded-xl transition-all ease-in-out duration-100 hover:text-white hover:bg-gray-600 active:bg-gray-500">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-10">
+
+    <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-9">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
@@ -182,7 +211,7 @@
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
                         <div class="flex flex-row justify-start w-full">
                             <button id="clear-btn" title="" type="button"
-                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1">
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1 ">
                                 <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
                                     height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path
@@ -212,19 +241,87 @@
                         </div>
                         <script>
                             
+                            
                             const clearBtn = document.getElementById("clear-btn")
                             const pasteBtn = document.getElementById("paste-btn")
                             const uploadBtn = document.getElementById("upload-btn")
                             const taNews = document.getElementById("texto")
 
                             const clearText = () => {
-                                taNews.value = ""
+                                
+                                clearBtn.disabled = true
+                                clearBtn.classList.add("disabled")
+                                clearConfirm = document.getElementById('clear-confirm')
+                                
+                                clearConfirm.classList.remove("hidden")
+                                clearConfirm.classList.remove("-translate-y-full")
+                                clearConfirm.classList.add("-translate-y-80")
+                                clearConfirm.classList.add("opacity-100")
+                                clearConfirmBtn = document.getElementById("clear-confirm-btn")
+                                clearCancelBtn = document.getElementById("clear-cancel-btn")
+                                
+                                const bgClear = document.querySelector('.bg-clear')
+                                const title = document.querySelector('.title-clear')
+                                const description = document.querySelector('.desc-clear')
+                                const originalDesc = description.textContent
+                                const btnsClear = document.querySelector('.btns-clear')
+
+                                clearConfirmBtn.addEventListener("click", () => {
+                                    
+                                    taNews.value = ""
+                                    bgClear.classList.remove("bg-red-500")
+                                    bgClear.classList.add("bg-green-500")
+                                    title.classList.remove("text-red-500")
+                                    title.classList.remove("dark:text-red-500")
+                                    title.classList.add("dark:text-green-500")
+                                    title.classList.add("text-green-500")
+                                    description.textContent = "Conteúdo apagado com sucesso!"
+                                    btnsClear.classList.add("hidden")
+                                    
+                                    setTimeout(() => {
+                                        clearConfirm.classList.remove("opacity-100")
+                                    }, 4000)
+                                    setTimeout(() => {
+                                            clearConfirm.classList.remove("-translate-y-80") 
+                                            clearConfirm.classList.add("-translate-y-full")
+                                        
+                                    },5000)
+                                    setTimeout(() => {
+                                            clearConfirm.classList.add("hidden")
+                                            clearBtn.disabled = false
+                                            clearBtn.classList.remove("disabled")
+                                            bgClear.classList.remove("bg-green-500")
+                                            bgClear.classList.add("bg-red-500")
+                                            title.classList.remove("dark:text-green-500")
+                                            title.classList.remove("text-green-500")
+                                            title.classList.add("text-red-500")
+                                            title.classList.add("dark:text-red-500")
+                                            description.textContent = originalDesc
+                                            btnsClear.classList.remove("hidden")
+                                    },6000)
+                                })
+                                clearCancelBtn.addEventListener("click", () => {
+                                    btnsClear.classList.add("hidden")
+                                    setTimeout(() => {
+                                        clearConfirm.classList.remove("opacity-100")
+                                    }, 1000)
+                                    setTimeout(() => {
+                                        clearConfirm.classList.remove("-translate-y-80")
+                                        clearConfirm.classList.add("-translate-y-full")
+                                    }, 2000)
+                                    setTimeout(() => {
+                                        clearConfirm.classList.add("hidden")
+                                        clearBtn.disabled = false
+                                        clearBtn.classList.remove("disabled")
+                                        btnsClear.classList.remove("hidden")
+                                    }, 3000)
+                                })
                             }
 
                             const pasteText = () => {
                                 navigator.clipboard.readText()
                                     .then(text => {
-                                        taNews.value = text
+                                        taNews.value += text
                                     })
                                     .catch(err => {
                                         console.error('Erro ao ler a área de transferência: ', err);
