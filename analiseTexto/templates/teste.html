@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliNews - Resultados</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+
+        @keyframes bounce-custom {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-custom 1s infinite;
+}
+
+.animate-bounce-delay-1 {
+  animation: bounce-custom 1s infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-bounce-delay-2 {
+  animation: bounce-custom 1s infinite;
+  animation-delay: 0.4s;
+}
+    </style>
+</head>
+
+    <body class="bg-white dark:bg-gray-900 flex flex-col min-h-screen">
+        <!-- <div
+            class="loading-ui flex justify-center fixed items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
+            <div class="animate-pulse flex flex-row gap-10 w-1/2">
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-slow"></div>
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-1"></div>
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-2"></div>
+            </div>
+            
+        </div> -->
+        <div className="relative w-full h-96 bg-gradient-to-r from-amber-500 to-orange-600">
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent rounded-[100%] transform rotate-3">
+  </div>
+</div>
+    </body>    
+</html>

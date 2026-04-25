@@ -6,29 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IntelliNews - Resultados</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
+<style>
 
+        @keyframes bounce-custom {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-custom 1s infinite;
+}
+
+.animate-bounce-delay-1 {
+  animation: bounce-custom 1s infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-bounce-delay-2 {
+  animation: bounce-custom 1s infinite;
+  animation-delay: 0.4s;
+}
     </style>
 </head>
 
 <body class="bg-white dark:bg-gray-900 flex flex-col min-h-screen">
     <div
-        class="loading-ui flex justify-center fixed items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
-        <svg class="animate-spin size-75 z-10" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"
-            class="hds-flight-icon--animation-loading">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-                <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd">
-                    <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2">
-                    </path>
-                    <path
-                        d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z">
-                    </path>
-                </g>
-            </g>
-        </svg>
-    </div>
+            class="loading-ui flex fixed justify-center items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
+            <div class="animate-pulse flex flex-row justify-center gap-10 w-1/2">
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-slow"></div>
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-1"></div>
+                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-2"></div>
+            </div>
+            
+        </div>
     <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-8">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
@@ -132,7 +146,7 @@
                     <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
             </div>
-            <div class="container px-6 py-10 mx-auto animate-pulse">
+            <div class="container px-6 py-10 mx-auto animate-pulse skeleton-graph">
                 <div class="mt-8 xl:mt-12">
                     <div class="w-full ">
                         <div class="w-full h-64 bg-gray-300 rounded-lg md:h-72 dark:bg-gray-600"></div>
@@ -194,7 +208,7 @@
                                     Gráfico de Torre
                                 </button>
                             </div>
-                        <div class="w-full text-gray-200">
+                        <div class="w-full text-gray-200 content-graph">
                             <div class="w-full h-72 bg-gray-100 rounded-lg md:h-72 dark:bg-gray-800">
 
                                 <div>
