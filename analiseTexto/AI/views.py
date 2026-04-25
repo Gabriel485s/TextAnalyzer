@@ -2,11 +2,36 @@ from django.shortcuts import render
 from django.http import HttpRequest
 import string
 import nltk
+from pathlib import Path
+import pickle
+
 nltk.download('punkt_tab')
 
-
-
 # Create your views here.
+
+def extrair_caracteristicas(palavras):
+    return {palavra: True for palavra in palavras}
+
+def preparar_texto(texto):
+    
+    texto = texto.lower()
+    texto = texto.translate(str.maketrans('', '', string.punctuation))
+
+    palavras = nltk.tokenize.word_tokenize(texto, language='portuguese')
+
+    palavras_filtradas = []
+
+    for palavra in palavras:
+        palavras_filtradas.append(palavra)
+
+    return palavras_filtradas
+
+pasta_atual = Path(__file__).parent
+caminho_modelo = pasta_atual / "NaiveBayes.pickle"
+
+with open(caminho_modelo, "rb") as arquivo:
+    classificador = pickle.load(arquivo)
+
 
 def index(request:HttpRequest):
     
@@ -24,37 +49,49 @@ def analise(request: HttpRequest):
     mostrar_grafico = False
     positivos = 0
     negativos = 0
+    neutros = 0
     texto = ""
+    resultado = ""
 
     if request.method == 'POST':
         texto = request.POST.get('texto', '').strip()
-        
+
         if texto:
-            minusculo = texto.lower()
 
-            texto_limpo = minusculo.translate(str.maketrans('', '', string.punctuation))
+            palavras = preparar_texto(texto)
 
-            stop_words = nltk.corpus.stopwords.words('portuguese')
-            palavras = nltk.tokenize.word_tokenize(texto_limpo, language='portuguese')
+            caracteristicas = extrair_caracteristicas(palavras)
 
-            frase_filtrada = []
+            resultado = classificador.classify(caracteristicas)
 
-            for frase in palavras:
-                if frase not in stop_words:
-                    frase_filtrada.append(frase)
+            probabilidades = classificador.prob_classify(caracteristicas)
 
+            positivos = round(probabilidades.prob("positivo") * 100, 2)
+            negativos = round(probabilidades.prob("negativo") * 100, 2)
+            neutros = round(probabilidades.prob("neutro") * 100, 2)
 
-            print(frase_filtrada)
-
-            positivos = 10
-            negativos = 5
-            mostrar_grafico = True
+            print(positivos + negativos + neutros)
             
-            return render(request, "result.html", {"noticia": texto})
+            mostrar_grafico = True
+
+            contexto = {
+                "mostrar_grafico": mostrar_grafico,
+                "positivos": positivos,
+                "negativos": negativos,
+                "neutros": neutros,
+                "texto": texto,
+                "resultado": resultado,
+            }
+
+            return render(request, "result.html", contexto)
+
     contexto = {
         "mostrar_grafico": mostrar_grafico,
         "positivos": positivos,
         "negativos": negativos,
-        "texto": texto
+        "neutros": neutros,
+        "texto": texto,
+        "resultado": resultado,
     }
+    
     return render(request, 'index.html', contexto)
