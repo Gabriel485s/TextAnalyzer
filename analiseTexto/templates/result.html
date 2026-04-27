@@ -6,48 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IntelliNews - Resultados</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<style>
-
+    <style>
         @keyframes bounce-custom {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
 
-.animate-bounce-slow {
-  animation: bounce-custom 1s infinite;
-}
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-.animate-bounce-delay-1 {
-  animation: bounce-custom 1s infinite;
-  animation-delay: 0.2s;
-}
+            50% {
+                transform: translateY(-20px);
+            }
+        }
 
-.animate-bounce-delay-2 {
-  animation: bounce-custom 1s infinite;
-  animation-delay: 0.4s;
-}
+        .animate-bounce-slow {
+            animation: bounce-custom 1s infinite;
+        }
+
+        .animate-bounce-delay-1 {
+            animation: bounce-custom 1s infinite;
+            animation-delay: 0.2s;
+        }
+
+        .animate-bounce-delay-2 {
+            animation: bounce-custom 1s infinite;
+            animation-delay: 0.4s;
+        }
     </style>
 </head>
 
 <body class="bg-white dark:bg-gray-900 flex flex-col min-h-screen">
     <div
-            class="loading-ui flex fixed justify-center items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
-            <div class="animate-pulse flex flex-row justify-center gap-10 w-1/2">
-                <div class="bg-gray-900 w-10 h-10 animate-bounce-slow"></div>
-                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-1"></div>
-                <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-2"></div>
-            </div>
-            
+        class="loading-ui flex fixed justify-center items-center px-6 py-16 m-0 border-1 border-gray-700 rounded-lg text-center shadow-xl z-10 inset-0 bg-gray-200/20">
+        <div class="animate-pulse flex flex-row justify-center gap-10 w-1/2">
+            <div class="bg-gray-900 w-10 h-10 animate-bounce-slow"></div>
+            <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-1"></div>
+            <div class="bg-gray-900 w-10 h-10 animate-bounce-delay-2"></div>
         </div>
+
+    </div>
     <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-8">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center">
                 <div class="flex items-center justify-between">
-                    <a href="{% url 'index' %}" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+                    <a href="{% url 'index' %}"
+                        class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
                         IntelliNews
                     </a>
 
@@ -101,15 +104,20 @@
     <header class="bg-white dark:bg-gray-900 mt-20">
         <div
             class="flex justify-center items-center px-6 py-10 mx-12 border-1 border-gray-700 rounded-lg text-center shadow-xl">
-            <h1 class="text-5xl text-gray-900 dark:text-gray-200 tracking-widest font-bold animate-pulse">RESULTADOS
+            <h1 class="text-5xl text-gray-900 dark:text-gray-200 tracking-widest font-bold">RESULTADOS
             </h1>
         </div>
     </header>
-    <section class="bg-white dark:bg-gray-900 my-5">
+    <section id="resultSection" class="bg-white dark:bg-gray-900 my-5">
+        <div class="border-1 border-gray-700 rounded-lg shadow-xl px-16 py-16 mx-20">
+            <div class="grid grid-cols-2 gap-3 mb-5 px-5 py-2 border-1 border-gray-700 rounded-lg w-full shadow-lg ">
+                <button id="user-news-btn" onclick="select(this)" class="select-btn bg-gray-800 rounded-lg px-5 py-2 text-lg text-gray-200 hover:bg-gray-700 active:bg-gray-600 transition duration-200 ease-in-out cursor-pointer ">Notícia Inserida</button>
+                <button id="ld-news-btn" onclick="select(this)" class="select-btn bg-gray-800 rounded-lg px-5 py-2 text-lg text-gray-200 hover:bg-gray-700 active:bg-gray-600 transition duration-200 ease-in-out cursor-pointer ">Notícias dos últimos 5 dias</button>
+            </div>
 
         <!-- SKELETON LOADER -->
         <div
-            class="flex flex-row justify-between items-center px-16 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl min-h-full skeleton-loader">
+            class="flex flex-row justify-between items-center min-h-full skeleton-loader">
             <div class="flex flex-col">
                 <div class=" w-full max-w-md animate-pulse p-9">
                     <h1 class="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
@@ -159,8 +167,38 @@
         </div>
 
         <!-- REAL CONTENT -->
-        <div
-            class="hidden flex flex-row justify-between items-center px-16 py-16 mx-20 border-1 border-gray-700 rounded-lg shadow-xl min-h-full w- real-content">
+        
+        <div 
+            class="hidden flex flex-col justify-between items-center  min-h-full w real-content">
+
+
+            <script>
+            // function select(selectedBtn) {
+            //     const userNewsDiv = document.getElementById("user-news")
+            //     const ldNewsDiv = document.getElementById("last-days-news")
+            //     // remove seleção de todos
+            //     document.querySelectorAll(".select-btn").forEach(btn => {
+            //         btn.classList.remove("ring-2", "ring-gray-200", "border-gray-200");
+            //     });
+
+            //     // adiciona no clicado
+            //     selectedBtn.classList.add("ring-2", "ring-gray-200", "border-gray-200");
+
+            //     if (selectedBtn.id === "user-news-btn") {
+            //         userNewsDiv.classList.remove("hidden")
+            //         ldNewsDiv.classList.add("hidden")
+            //         console.log("user-news")
+            //     } else {
+            //         ldNewsDiv.classList.remove("hidden")
+            //         userNewsDiv.classList.add("hidden")
+            //         console.log("ld-news")
+            //     }
+                
+            // }
+            </script>
+
+            <!-- User Insert News -->
+            <div id="user-news" class="flex flex-row justify-between items-center min-h-full w-full real-content" >
             <div class="flex flex-col">
                 <div class=" max-w-xs p-9 text-gray-200">
                     <h1 class="font-bold">Acurácia: ---%</h1>
@@ -199,143 +237,320 @@
                 <div class="container px-16 py-5 mx-auto">
                     <div class="">
                         <div class="flex flex-row mb-3 justify-center">
-                                <button id="pizza-btn" title="" type="button"
-                                    class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12 capitalize text-gray-200 hover:text-gray-200 bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none ease-in-out active:translate-y-1">
-                                    Gráfico de Pizza
-                                </button>
-                                <button id="tower-btn" title="" type="button"
-                                    class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12  capitalize text-gray-200 hover:text-gray-200 bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none ease-in-out active:translate-y-1">
-                                    Gráfico de Torre
-                                </button>
-                            </div>
+                            <button id="pizza-user-btn" title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12 capitalize text-gray-200 border-1 border-gray-800 hover:text-gray-200 bg-gray-800 rounded-lg hover:bg-gray-700 hover:border-gray-200 focus:outline-none ease-in-out active:translate-y-1">
+                                Gráfico de Pizza
+                            </button>
+                            <button id="tower-user-btn" title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12 capitalize text-gray-200 border-1 border-gray-800 hover:text-gray-200 bg-gray-800 rounded-lg hover:bg-gray-700 hover:border-gray-200 focus:outline-none ease-in-out active:translate-y-1">
+                                Gráfico de Torre
+                            </button>
+                        </div>
                         <div class="w-full text-gray-200 content-graph">
                             <div class="w-full h-72 bg-gray-100 rounded-lg md:h-72 dark:bg-gray-800">
 
                                 <div>
-                                    <canvas id="myChart"></canvas>
+                                    <canvas id="chart-user"></canvas>
                                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                                    <script>
-                                        let chart
-                                        const ctx = document.getElementById('myChart');
-                                        const pizzaBtn = document.getElementById('pizza-btn')
-                                        const towerBtn = document.getElementById('tower-btn')
-                                        const showTowerGraph = () => {
-                                            if(chart) {
-                                                chart.destroy()
-                                            }
-
-                                            chart = new Chart(ctx, {
-                                                type: 'bar',
-                                                data: {
-                                                    labels: ['Positivo', 'Negativo', 'Neutro'],
-                                                    datasets: [{
-                                                        label: '# Probabilidade de Sentimento',
-                                                        data: [ Number("{{ positivos }}".replace(",", ".")),
-                                                                Number("{{ negativos }}".replace(",", ".")),
-                                                                Number("{{ neutros }}".replace(",", "."))
-                                                            ],
-                                                        borderWidth: 1
-                                                    }]
-                                                },
-                                                options: {
-                                                    scales: {
-                                                        y: {
-                                                            beginAtZero: true
-                                                        }
-                                                    }
-                                                }
-                                            });
-                                        }
-
-                                        const showPizzaGraph = () => {
-                                            if(chart) {
-                                                chart.destroy()
-                                            }
-
-                                            chart = new Chart(ctx, {
-                                                type: 'pie',
-                                                data: {
-                                                    labels: ['Positivo', 'Negativo', 'Neutro'],
-                                                    datasets: [{
-                                                        label: '# Probabilidade de Sentimento',
-                                                        data: [Number("{{ positivos }}".replace(",", ".")),
-                                                                Number("{{ negativos }}".replace(",", ".")),
-                                                                Number("{{ neutros }}".replace(",", "."))
-                                                            ],
-                                                        borderWidth: 1,
-                                                        backgroundColor: [
-                                                            'rgba(34, 197, 94, 0.7)',
-                                                            'rgba(239, 68, 68, 0.7)',
-                                                            'rgba(209, 213, 219, 0.7)'
-                                                        ],
-                                                        borderColor: [
-                                                            'rgba(21, 128, 61, 1)',
-                                                            'rgba(185, 28, 28, 1)',
-                                                            'rgba(107, 114, 128, 1)'
-                                                        ]
-                                                    }]
-                                                },
-                                                options: {
-                                                    responsive: true,
-                                                    maintainAspectRatio: false,
-                                                    radius: '85%'
-                                                }
-                                            });
-                                        }
-                                        
-                                        window.onload = showTowerGraph()
-
-                                        pizzaBtn.addEventListener('click', showPizzaGraph)
-                                        towerBtn.addEventListener('click', showTowerGraph)
-
-                                    </script>
                                 </div>
                             </div>
-                            <h1 class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
-                            <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                            <button onclick="carregar()" class="mt-4 bg-red-500 px-2 py-1 text-sm rounded-lg text-gray-200 transition duration-100 ease-in-out flex items-center flex-row border-1 border-red-500 hover:border-white active:bg-red-400">
+                                <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                                    <path
+                                        d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
+                                    </path>
+                                </svg>
+                                Gráfico não carregou? Clique aqui para renderiza-lo corretamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="last-days-news" 
+        class="hidden flex flex-row justify-between items-center min-h-full w-full real-content" >
+            <div class="flex flex-col">
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Acurácia: ---%</h1>
+
+                    <p class=" mt-2">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA acurácia em Inteligência Artificial (IA) serve fundamentalmente para medir
+                        o desempenho
+                        e a taxa de acerto de um modelo de classificação.</p>
+                </div>
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Precisão: ---%</h1>
+
+                    <p class=" mt-2">A precisão em IA mede quantas previsões positivas feitas pelo modelo estão
+                        corretas, indicando a confiabilidade dos resultados positivos.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <div class=" max-w-xs  p-9 text-gray-200">
+                    <h1 class="font-bold">Tempo de Previsão: --- segundos</h1>
+
+                    <p class=" mt-2">O tempo de previsão em IA indica quanto tempo o modelo leva para analisar dados e
+                        gerar uma resposta.</p>
+                </div>
+
+                <div class=" max-w-xs p-9 text-gray-200">
+                    <h1 class="font-bold">Tempo de Treinamento: --- segundos</h1>
+
+                    <p class=" mt-2">O tempo de treinamento em IA representa quanto tempo o modelo leva para aprender
+                        com os dados.</p>
+                </div>
+            </div>
+            <div class="flex flex-1">
+                <div
+                    class="h-2xl min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
+                </div>
+                <div class="container px-16 py-5 mx-auto">
+                    <div class="">
+                        <div class="flex flex-row mb-3 justify-center">
+                            <button id="pizza-last-btn" title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12 capitalize text-gray-200 hover:text-gray-200 border-1 border-gray-800 hover:text-gray-200 bg-gray-800 rounded-lg hover:bg-gray-700 hover:border-gray-200 focus:outline-none ease-in-out active:translate-y-1">
+                                Gráfico de Pizza
+                            </button>
+                            <button id="tower-last-btn" title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-100 transition-all transform cursor-pointer mx-2 mt-2 h-12 px-5 lg:mx-2 lg:h-12  capitalize text-gray-200 hover:text-gray-200 border-1 border-gray-800 hover:text-gray-200 bg-gray-800 rounded-lg hover:bg-gray-700 hover:border-gray-200 focus:outline-none ease-in-out active:translate-y-1">
+                                Gráfico de Torre
+                            </button>
+                        </div>
+                        <div class="w-full text-gray-200 content-graph">
+                            <div class="w-full h-72 bg-gray-100 rounded-lg md:h-72 dark:bg-gray-800">
+
+                                <div>
+                                    <canvas id="chart-last"></canvas>
+                                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                    
+                                </div>
+                            </div>
+                            <button onclick="carregar()" class="mt-4 bg-red-500 px-2 py-1 text-sm rounded-lg text-gray-200 transition duration-100 ease-in-out flex items-center flex-row border-1 border-red-500 hover:border-white active:bg-red-400">
+                                <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                                    <path
+                                        d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
+                                    </path>
+                                </svg>
+                                Gráfico não carregou? Clique aqui para renderiza-lo corretamente
+                            </button>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <script>
-                const skeletonContent = document.querySelector(".skeleton-loader")
-                const realContent = document.querySelector(".real-content")
-                const loadingUI = document.querySelector(".loading-ui")
-
-                setTimeout(() => {
-                    setTimeout(() => {
-                        loadingUI.style.display = "none"
-                    }, 1500)
-                    skeletonContent.style.display = "none"
-                    realContent.style.display = "flex"
-                }, 2000)
-            </script>
-    </section>
-    <div class="w-full text-white bg-red-500">
-    <div class="container flex items-center justify-between px-6 py-4 mx-auto">
-        <div class="flex">
-            <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-                <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
-                </path>
-            </svg>
-
-            <p class="mx-3 text-lg">É AQUI ONDE A ACURACIA E OS CARAMBA VAI FICAR, ESSES AI EM CIMA VAI SER RELACIONADO A NOTICIA E NÃO A IA</p>
         </div>
 
-        <button class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </button>
+        </div>
+        </div>
+
+        
+        
+        <script>
+            const resultSection = document.getElementById("resultSection")
+            const skeletonContent = document.querySelector(".skeleton-loader")
+            const realContent = document.querySelector(".real-content")
+            const loadingUI = document.querySelector(".loading-ui")
+            const userNewsDiv = document.getElementById("user-news")
+            const ldNewsDiv = document.getElementById("last-days-news")
+
+            setTimeout(() => {
+                setTimeout(() => {
+                    loadingUI.style.display = "none"
+                }, 1500)
+                skeletonContent.style.display = "none"
+                realContent.style.display = "flex"
+            }, 2000)
+
+            function select(selectedBtn) {
+                // remove seleção de todos
+                document.querySelectorAll(".select-btn").forEach(btn => {
+                    btn.classList.remove("ring-2", "ring-gray-200", "border-gray-200");
+                    btn.disabled = false
+                });
+
+                // adiciona no clicado
+                selectedBtn.classList.add("ring-2", "ring-gray-200", "border-gray-200");
+                selectedBtn.disabled = true
+
+                if (selectedBtn.id === "user-news-btn") {
+                    ldNewsDiv.classList.add("hidden")
+                    resultSection.classList.add("flex-col-reverse")
+                    skeletonContent.style.display = "flex"
+                    setTimeout(() => {
+                        createUserChart();
+                        skeletonContent.style.display = "none"
+                        userNewsDiv.classList.remove("hidden")
+                        resultSection.classList.remove("flex-col-reverse")
+                    }, 1000)
+                    
+                    console.log("user-news")
+                } else {
+                    userNewsDiv.classList.add("hidden")
+                    resultSection.classList.add("flex-col-reverse")
+                    skeletonContent.style.display = "flex"
+                    setTimeout(() => {
+                        createLastChart();
+                        skeletonContent.style.display = "none"
+                        ldNewsDiv.classList.remove("hidden")
+                        resultSection.classList.remove("flex-col-reverse")
+                    }, 1000)
+                    console.log("ld-news")
+                }
+                
+            }
+        </script>
+
+        <script>
+            let chartUser, chartLast;
+            const pizzaUserBtn = document.getElementById('pizza-user-btn')
+            const towerUserBtn = document.getElementById('tower-user-btn')
+
+            function createUserChart(type = 'pie') {
+                const ctxUser = document.getElementById('chart-user');
+
+                if (chartUser) {
+                    chartUser.destroy();
+                }
+
+                chartUser = new Chart(ctxUser, {
+                    type: type, // 'bar' ou 'pie'
+                    data: {
+                        labels: ['Positivo', 'Negativo', 'Neutro'],
+                        datasets: [{
+                            label: '# Probabilidade de Sentimento',
+                            data: [
+                                Number("{{ positivos }}".replace(",", ".")),
+                                Number("{{ negativos }}".replace(",", ".")),
+                                Number("{{ neutros }}".replace(",", "."))
+                            ],
+                            borderWidth: 1,
+                            backgroundColor: type === 'pie' ? [
+                                'rgba(34, 197, 94, 0.7)',
+                                'rgba(239, 68, 68, 0.7)',
+                                'rgba(209, 213, 219, 0.7)'
+                            ] : undefined,
+                            borderColor: type === 'pie' ? [
+                                'rgba(21, 128, 61, 1)',
+                                'rgba(185, 28, 28, 1)',
+                                'rgba(107, 114, 128, 1)'
+                            ] : undefined
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        radius: '80%',
+                        scales: type === 'bar' ? {
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: 1
+                            }
+                        } : {}
+                    }
+                });
+            }
+
+            const pizzaLastBtn = document.getElementById('pizza-last-btn')
+            const towerLastBtn = document.getElementById('tower-last-btn')
+
+            function createLastChart(type = 'pie') {
+                const ctxLast = document.getElementById('chart-last');
+
+                if (chartLast) {
+                    chartLast.destroy();
+                }
+
+                chartLast = new Chart(ctxLast, {
+                    type: type,
+                    data: {
+                        labels: ['Positivo', 'Negativo', 'Neutro'],
+                        datasets: [{
+                            label: '# Probabilidade de Sentimento',
+                            data: [
+                                Number("{{ positivos }}".replace(",", ".")),
+                                Number("{{ negativos }}".replace(",", ".")),
+                                Number("{{ neutros }}".replace(",", "."))
+                            ],
+                            borderWidth: 1,
+                            backgroundColor: type === 'pie' ? [
+                                'rgba(34, 197, 94, 0.7)',
+                                'rgba(239, 68, 68, 0.7)',
+                                'rgba(209, 213, 219, 0.7)'
+                            ] : undefined,
+                            borderColor: type === 'pie' ? [
+                                'rgba(21, 128, 61, 1)',
+                                'rgba(185, 28, 28, 1)',
+                                'rgba(107, 114, 128, 1)'
+                            ] : undefined
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        radius: '80%',
+                        scales: type === 'bar' ? {
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: 1
+                            }
+                        } : {}
+                    }
+                });
+            }
+
+            pizzaUserBtn.addEventListener('click', () => {
+                createUserChart('pie');
+            });
+
+            towerUserBtn.addEventListener('click', () => {
+                createUserChart('bar');
+            });
+
+            pizzaLastBtn.addEventListener('click', () => {
+                createLastChart('pie');
+            });
+
+            towerLastBtn.addEventListener('click', () => {
+                createLastChart('bar');
+            });
+
+            const carregar = () => {
+                createUserChart('pie')
+                createLastChart('pie')
+            }
+            window.onload.carregar()
+
+        </script>
+    </section>
+    <div class="w-full text-white bg-red-500">
+        <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+            <div class="flex">
+                <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                    <path
+                        d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
+                    </path>
+                </svg>
+
+                <p class="mx-3 text-lg">É AQUI ONDE A ACURACIA E OS CARAMBA VAI FICAR, ESSES AI EM CIMA VAI SER
+                    RELACIONADO A NOTICIA E NÃO A IA</p>
+            </div>
+
+            <button
+                class="p-1 transition-colors duration-300 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
     </div>
-</div>
 
     <footer class="bg-white dark:bg-gray-900">
         <div
             class="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
-            <a href="{% url 'index' %}" class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
+            <a href="{% url 'index' %}"
+                class="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xl overline">
                 IntelliNews
             </a>
 
