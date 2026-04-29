@@ -201,14 +201,14 @@
             <div id="user-news" class="flex flex-row justify-between items-center min-h-full w-full real-content" >
             <div class="flex flex-col">
                 <div class=" max-w-xs p-9 text-gray-200">
-                    <h1 class="font-bold">Acurácia: ---%</h1>
+                    <h1 class="font-bold">Acurácia: {{acuracia}}%</h1>
 
                     <p class=" mt-2">A acurácia em Inteligência Artificial (IA) serve fundamentalmente para medir
                         o desempenho
                         e a taxa de acerto de um modelo de classificação.</p>
                 </div>
                 <div class=" max-w-xs p-9 text-gray-200">
-                    <h1 class="font-bold">Precisão: ---%</h1>
+                    <h1 class="font-bold">Precisão: {{precisao}}%</h1>
 
                     <p class=" mt-2">A precisão em IA mede quantas previsões positivas feitas pelo modelo estão
                         corretas, indicando a confiabilidade dos resultados positivos.</p>
@@ -217,14 +217,14 @@
 
             <div class="flex flex-col">
                 <div class=" max-w-xs  p-9 text-gray-200">
-                    <h1 class="font-bold">Tempo de Previsão: --- segundos</h1>
+                    <h1 class="font-bold">Tempo de Previsão: {{tempo_previsao}} segundos</h1>
 
                     <p class=" mt-2">O tempo de previsão em IA indica quanto tempo o modelo leva para analisar dados e
                         gerar uma resposta.</p>
                 </div>
 
                 <div class=" max-w-xs p-9 text-gray-200">
-                    <h1 class="font-bold">Tempo de Treinamento: --- segundos</h1>
+                    <h1 class="font-bold">Tempo de Treinamento: {{tempo_treino}} segundos</h1>
 
                     <p class=" mt-2">O tempo de treinamento em IA representa quanto tempo o modelo leva para aprender
                         com os dados.</p>

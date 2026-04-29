@@ -6,13 +6,7 @@ import string
 
 all_words = []
 
-resultado = []
-
 try:
-
-    with open(r"C:\Users\User\OneDrive\Documentos\VS-CodeProjects\APS\analiseTexto\Resources\Web_Scrapping\extracted_urls.json", "r", encoding="utf-8") as arquivo:
-        dados = json.load(arquivo)
-
     #for item in dados:
         #pagina = requests.get(item["url"])
 
@@ -29,32 +23,22 @@ try:
             #palavras = texto.split()
             #all_words.extend(palavras)
                
-    for item in dados:
-        
-        pagina = requests.get(item["url"])
+    pagina = requests.get("https://boanoticiabrasil.com.br/sustentabilidade/brasil-reduz-desmatamento-queda-global-2025/")
 
-        dados_pagina = BeautifulSoup(pagina.text, 'html.parser')
+    dados_pagina = BeautifulSoup(pagina.text, 'html.parser')
 
-        frases = dados_pagina.find_all('div', class_="mc-column content-text active-extra-styles")
+    frases = dados_pagina.find_all("p")
 
-        textos = []
+    textos = []
 
-        for div in frases:
-            texto = div.get_text(" ", strip=True)
-            if texto:
-                textos.append(texto)
+    for tag in frases:
+        texto = tag.get_text(" ", strip=True)
+        if texto:
+            textos.append(texto)
 
-        texto_final = " ".join(textos)
+    texto_final = " ".join(textos)
 
-        resultado.append({
-            "url": item["url"],
-            "texto": texto_final
-        })
-
-    with open(r"C:\Users\User\OneDrive\Documentos\VS-CodeProjects\APS\analiseTexto\Resources\Web_Scrapping\textos_extraidos.json", "w", encoding="utf-8") as arquivo_saida:
-        json.dump(resultado, arquivo_saida, ensure_ascii=False, indent=4)
-
-    print("JSON salvo com sucesso.")
+    print(texto_final)
  
 
 except Exception as e:
