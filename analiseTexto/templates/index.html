@@ -12,7 +12,8 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
-    <div id="clear-confirm"  class="fixed inset-0 flex justify-center items-center transition-all transition-opacity transform duration-1000 -translate-y-full ease-out z-50 opacity-0">
+    <div id="clear-confirm"
+        class="fixed inset-0 flex justify-center items-center transition-all transition-opacity transform duration-1000 -translate-y-full ease-out z-50 opacity-0">
         <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
             <div class="flex items-center justify-center w-12 bg-red-500 text-gray-100 bg-clear">
                 <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -23,7 +24,7 @@
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                 </svg>
             </div>
-    
+
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
                     <span class="font-semibold text-red-500 dark:text-red-500 title-clear">Apagar conteúdo</span>
@@ -210,8 +211,8 @@
                         <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
                         <div class="flex flex-row justify-start w-full">
-                            <button id="clear-btn" title="" type="button"
-                                class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1 ">
+                            <div id="clear-btn" title="" type="button"
+                                class="hover:shadow-xl flex items-center justify-center duration-300 transition-all transform cursor-pointer mx-2 mt-2 h-12 w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1 ">
                                 <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
                                     height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path
@@ -219,7 +220,13 @@
                                     <path
                                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                 </svg>
-                            </button>
+                                <svg id="confirm" class="size-7 fill-current hidden" xmlns="http://www.w3.org/2000/svg"
+                                    width="16" height="16" fill="currentColor" class="bi bi-check-lg"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
+                                </svg>
+                            </div>
                             <button id="paste-btn" title="" type="button"
                                 class="hover:shadow-xl flex items-center justify-center duration-300 transition transform cursor-pointer mx-2 mt-2 h-12 w-12 lg:mx-2 lg:h-12 lg:w-12 capitalize bg-gray-200 rounded-lg text-gray-900 hover:text-gray-200 hover:bg-blue-600 focus:outline-none active:bg-blue-700 active:border-1">
                                 <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -240,82 +247,62 @@
                             </button>
                         </div>
                         <script>
-                            
-                            
+
+
                             const clearBtn = document.getElementById("clear-btn")
                             const pasteBtn = document.getElementById("paste-btn")
                             const uploadBtn = document.getElementById("upload-btn")
                             const taNews = document.getElementById("texto")
+                            let confirmedClear = 0;
 
-                            const clearText = () => {
-                                
-                                clearBtn.disabled = true
-                                clearBtn.classList.add("disabled")
-                                clearConfirm = document.getElementById('clear-confirm')
-                                
-                                clearConfirm.classList.remove("hidden")
-                                clearConfirm.classList.remove("-translate-y-full")
-                                clearConfirm.classList.add("-translate-y-80")
-                                clearConfirm.classList.add("opacity-100")
-                                clearConfirmBtn = document.getElementById("clear-confirm-btn")
-                                clearCancelBtn = document.getElementById("clear-cancel-btn")
-                                
-                                const bgClear = document.querySelector('.bg-clear')
-                                const title = document.querySelector('.title-clear')
-                                const description = document.querySelector('.desc-clear')
-                                const originalDesc = description.textContent
-                                const btnsClear = document.querySelector('.btns-clear')
+                            const clearTextNew = () => {
+                                confirmedClear += 1;
+                                const confirmBtn = document.getElementById("confirm")
+                                clearBtn.classList.remove("w-12")
+                                clearBtn.classList.add("w-24")
+                                confirmBtn.classList.remove("hidden")
+                                clearBtn.classList.remove("justify-center")
+                                clearBtn.classList.add("justify-evenly")
 
-                                clearConfirmBtn.addEventListener("click", () => {
-                                    
+                                if (confirmedClear === 2) {
                                     taNews.value = ""
-                                    bgClear.classList.remove("bg-red-500")
-                                    bgClear.classList.add("bg-green-500")
-                                    title.classList.remove("text-red-500")
-                                    title.classList.remove("dark:text-red-500")
-                                    title.classList.add("dark:text-green-500")
-                                    title.classList.add("text-green-500")
-                                    description.textContent = "Conteúdo apagado com sucesso!"
-                                    btnsClear.classList.add("hidden")
-                                    
+                                    clearBtn.classList.remove("w-24")
+                                    clearBtn.classList.add("w-12")
+                                    confirmBtn.classList.add("hidden")
+                                    clearBtn.classList.remove("justify-evenly")
+                                    clearBtn.classList.add("justify-center")
+                                    confirmedClear = 0;
+                                    clearBtn.classList.remove("justify-evenly")
+                                    clearBtn.classList.remove("bg-gray-200")
+                                    clearBtn.classList.remove("hover:bg-red-600")
+                                    clearBtn.classList.remove("active:bg-red-900")
+                                    clearBtn.classList.remove("text-gray-900")
+                                    clearBtn.classList.add("text-gray-200")
+                                    clearBtn.classList.add("bg-green-500")
+                                    clearBtn.classList.add("hover:bg-green-500")
+                                    clearBtn.classList.add("active:bg-green-900")
                                     setTimeout(() => {
-                                        clearConfirm.classList.remove("opacity-100")
-                                    }, 4000)
-                                    setTimeout(() => {
-                                            clearConfirm.classList.remove("-translate-y-80") 
-                                            clearConfirm.classList.add("-translate-y-full")
-                                        
-                                    },5000)
-                                    setTimeout(() => {
-                                            clearConfirm.classList.add("hidden")
-                                            clearBtn.disabled = false
-                                            clearBtn.classList.remove("disabled")
-                                            bgClear.classList.remove("bg-green-500")
-                                            bgClear.classList.add("bg-red-500")
-                                            title.classList.remove("dark:text-green-500")
-                                            title.classList.remove("text-green-500")
-                                            title.classList.add("text-red-500")
-                                            title.classList.add("dark:text-red-500")
-                                            description.textContent = originalDesc
-                                            btnsClear.classList.remove("hidden")
-                                    },6000)
-                                })
-                                clearCancelBtn.addEventListener("click", () => {
-                                    btnsClear.classList.add("hidden")
-                                    setTimeout(() => {
-                                        clearConfirm.classList.remove("opacity-100")
-                                    }, 1000)
-                                    setTimeout(() => {
-                                        clearConfirm.classList.remove("-translate-y-80")
-                                        clearConfirm.classList.add("-translate-y-full")
-                                    }, 2000)
-                                    setTimeout(() => {
-                                        clearConfirm.classList.add("hidden")
-                                        clearBtn.disabled = false
-                                        clearBtn.classList.remove("disabled")
-                                        btnsClear.classList.remove("hidden")
+                                        clearBtn.classList.remove("text-gray-200")
+                                        clearBtn.classList.remove("hover:bg-green-500")
+                                        clearBtn.classList.remove("active:bg-green-900")
+                                        clearBtn.classList.remove("bg-green-500")
+                                        clearBtn.classList.add("text-gray-900")
+                                        clearBtn.classList.add("bg-gray-200")
+                                        clearBtn.classList.add("hover:bg-red-600")
+                                        clearBtn.classList.add("active:bg-red-900")
                                     }, 3000)
-                                })
+                                    clearTimeout(clearCancel)
+                                } else {
+                                    const clearCancel = setTimeout(() => {
+                                        clearBtn.classList.remove("w-24")
+                                        clearBtn.classList.add("w-12")
+                                        confirmBtn.classList.add("hidden")
+                                        clearBtn.classList.remove("justify-evenly")
+                                        clearBtn.classList.add("justify-center")
+                                        confirmedClear = 0;
+                                    }, 5000)
+                                }
+                                
                             }
 
                             const pasteText = () => {
@@ -333,29 +320,62 @@
                                 /*Tem que fazer ainda :(*/
                             }
 
-                            clearBtn.addEventListener("click", clearText)
+                            clearBtn.addEventListener("click", clearTextNew)
                             pasteBtn.addEventListener("click", pasteText)
                             uploadBtn.addEventListener("click", uploadArchive)
 
                         </script>
 
-                            <input title="Enviar notícia para análise" type="submit" value="Enviar"
-                                class="w-1/2 hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0  focus:outline-none active:bg-blue-800 active:border-1">
-    
+                        <input title="Enviar notícia para análise" type="submit" value="Enviar"
+                            class="w-1/2 hover:shadow-xl duration-300 transition transform cursor-pointer px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0  focus:outline-none active:bg-blue-800 active:border-1">
+
                     </form>
 
                     {% if mostrar_grafico %}
                     {% endif %}
-                         </div>
                 </div>
+                
             </div>
+        </div>
         </div>
         </div>
         </div>
     </section>
     <hr
         class="my-12 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
-    <section id="sobre" class="bg-white dark:bg-gray-900">
+    
+    <section class="bg-white dark:bg-gray-900">
+        <div class="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
+            <div class="flex justify-center xl:w-1/2">
+                <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover rounded-full"
+                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                    alt="">
+            </div>
+    
+            <div class="flex flex-col items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
+                <h2 class="text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">
+                    Análise das Notícias dos <span class="text-blue-400 underline">últimos 5 dias</span>
+                </h2>
+    
+                <p class="block max-w-2xl mt-4 text-gray-500 dark:text-gray-300">Fique por dentro! Veja também as análises dos últimos 5 dias realizadas pelo IntelliNews com os principais destaques, gráficos interativos e análises aprofundadas.</p>
+    
+                <div class="mt-6 sm:-mx-2">
+    
+                    <a href=""
+                        class="inline-flex items-center justify-center w-full px-4 text-lg py-2.5 mt-4 overflow-hidden text-white transition-colors duration-300 bg-blue-600 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+    
+                        <span class="mx-2">
+                            Conferir análise
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr
+        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
+    
+        <section id="sobre" class="bg-white dark:bg-gray-900">
         <div class="lg:flex">
             <div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
                 <div class="max-w-xl">
@@ -363,17 +383,19 @@
                             class="text-blue-600 dark:text-blue-400 font-bold overline tracking-widest">IntelliNews</span>
                     </h2>
 
-                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Saiba mais sobre o funcionamento do IntelliNews explorando nosso repositório no GitHub, onde você pode conferir detalhes da implementação, tecnologias utilizadas e toda a lógica por trás do sistema</p>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Saiba mais sobre o
+                        funcionamento do IntelliNews explorando nosso repositório no GitHub, onde você pode conferir
+                        detalhes da implementação, tecnologias utilizadas e toda a lógica por trás do sistema</p>
 
                     <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
                         <a href="https://github.com/Gabriel485s/TextAnalyzer"
                             class="flex flex-row px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
-                        </path>
-                    </svg>
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z">
+                                </path>
+                            </svg>
                             Ver mais</a>
                     </div>
                 </div>
@@ -389,13 +411,17 @@
     </section>
     <hr
         class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
-    <section id="creditos" class="bg-white dark:bg-gray-900">
+    
+    
+    
+        <section id="creditos" class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
             <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Nosso
                 Time de Desenvolvimento</h1>
 
             <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-                Conheça as mentes criativas e desenvolvedoras por trás do IntelliNews, responsáveis por transformar tecnologia em inteligência!
+                Conheça as mentes criativas e desenvolvedoras por trás do IntelliNews, responsáveis por transformar
+                tecnologia em inteligência!
             </p>
 
             <div class="flex flex-row justify-evenly">
@@ -409,7 +435,8 @@
                         class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                         gabriel soares</h1>
 
-                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend Developer</p>
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend
+                        Developer</p>
 
                     <div class="flex mt-3 -mx-2 items-center">
                         <a href="https://www.linkedin.com/in/gabriel-soares-de-oliveira-019a6a380/"
@@ -446,7 +473,8 @@
                         class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
                         Heitor Janko</h1>
 
-                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">UI/UX Designer & Developer
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">UI/UX Designer
+                        & Developer
                     </p>
 
                     <div class="flex mt-3 -mx-2 items-center">
@@ -501,4 +529,5 @@
         </div>
     </footer>
 </body>
+
 </html>
