@@ -189,10 +189,20 @@
                     <div class="flex flex-col">
 
                         <div class=" max-w-xs p-9 text-gray-200">
-                            <h1 class="font-bold">Sentimento da Notícia: (<span
-                                    class="text-green-500 text-md font-semibold">POSITIVA</span>/<span
-                                    class="text-gray-300 text-md font-semibold">NEUTRA</span>/<span
-                                    class="text-red-500 text-md font-semibold">NEGATIVA</span>)</h1>
+                            <h1 class="font-bold">Sentimento da Notícia: 
+                                    (
+                                
+                                {% if resultado == "positivo" %}
+                                    <span class="text-green-500 text-md font-semibold">POSITIVA</span>
+
+                                {% elif resultado == "neutro" %}
+                                    <span class="text-gray-300 text-md font-semibold">NEUTRA</span>
+
+                                {% elif resultado == "negativo" %}
+                                    <span class="text-red-500 text-md font-semibold">NEGATIVA</span>
+                                {% endif %}
+
+                                    )</h1>
 
                             <p class=" mt-2">O tempo de treinamento em IA representa quanto tempo o modelo leva para
                                 aprender
@@ -364,7 +374,16 @@
                 document.getElementById("ai-data").classList.remove("hidden");
             }, 2000)
 
-            function select(selectedBtn) {
+            function select(selectedBtn, redirecionar = true) {
+                
+                const params = new URLSearchParams(window.location.search);
+                const origem = params.get("origem");
+
+                if (origem === "inicial" && selectedBtn.id === "user-news-btn") {
+                    console.log("Bloqueado: veio da página inicial");
+                    return;
+                }
+                
                 // remove seleção de todos
                 document.querySelectorAll(".select-btn").forEach(btn => {
                     btn.classList.remove("ring-2", "ring-gray-200", "border-gray-200");
@@ -387,6 +406,11 @@
                     }, 1000)
 
                     console.log("user-news")
+
+                    if (redirecionar) {
+                        window.location.href = "/analise/?tipo=inserida";
+                    }
+
                 } else {
                     userNewsDiv.classList.add("hidden")
                     resultSection.classList.add("flex-col-reverse")
@@ -398,10 +422,46 @@
                         ldNewsDiv.classList.remove("hidden")
                         resultSection.classList.remove("flex-col-reverse")
                     }, 1000)
+                    
                     console.log("ld-news")
+
+                    if (redirecionar) {
+                        window.location.href = "/analise/?tipo=5_dias&origem=noticia"
+                    }
                 }
 
             }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const origem = params.get("origem");
+
+                if (origem === "inicial") {
+                    const btn = document.getElementById("ld-news-btn");
+
+                    if (btn) {
+                        select(btn, false);
+
+                        const btn2 = document.getElementById("user-news-btn");
+
+                        btn2.disabled = true
+                        btn2.classList.add("opacity-50", "cursor-not-allowed");
+                        btn2.classList.remove(
+                            "hover:bg-gray-700",
+                            "active:bg-gray-600",
+                            "cursor-pointer"
+                        );
+                    }
+                }
+                else if (origem === "noticia"){
+                    const btn = document.getElementById("ld-news-btn");
+
+                    if (btn) {
+                        select(btn, false);
+                    }
+                }
+            });
+
         </script>
 
         <script>
@@ -453,8 +513,10 @@
                     }
                 });
             }
-
+            
             function createNewsBarChart(type = 'bar') {
+
+                
                 const ctxBar = document.getElementById('news-bar-chart');
 
                 if (chartBar) {
@@ -604,6 +666,7 @@
                     <p class="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
             </div>
+            
             <div id="ai-data" class="flex flex-row hidden">
                 <div class=" max-w-xs p-9 text-gray-200">
                     <h1 class="font-bold">Acurácia: {{acuracia}}%</h1>

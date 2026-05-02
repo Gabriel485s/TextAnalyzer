@@ -69,14 +69,8 @@ def analise(request: HttpRequest):
             negativos = round(probabilidades.prob("negativo") * 100, 2)
             neutros = round(probabilidades.prob("neutro") * 100, 2)
 
-            print("resultado:", resultado)
-            print("qtd palavras:", len(palavras))
-            print("positivo:", probabilidades.prob("positivo"))
-            print("negativo:", probabilidades.prob("negativo"))
-            print("neutro:", probabilidades.prob("neutro"))
-
             mostrar_grafico = True
-
+                      
             contexto = {
                 "mostrar_grafico": mostrar_grafico,
                 "positivos": positivos,
@@ -89,9 +83,39 @@ def analise(request: HttpRequest):
                 "tempo_treino": round(metricas["tempo_treinamento_ms"] / 1000, 4),
                 "tempo_previsao": round(metricas["tempo_previsao_ms"] / 1000, 4),
             }
+            
+            request.session["analise_inserida"] = contexto
+            request.session.modified = True
 
             return render(request, "result.html", contexto)
+    
+    elif request.method == 'GET':
+        
+        if request.GET.get("tipo") == "5_dias":
+            mostrar_grafico = True
+            
+            contexto = {
+            "mostrar_grafico": mostrar_grafico,
+            "positivos": 30,
+            "negativos": 30,
+            "neutros": 40,
+            }
+        
+        
+            return render(request, "result.html", contexto)
+        
+        elif request.GET.get("tipo") == "inserida":
+            
+            contexto = request.session.get("analise_inserida")
 
+            if contexto is None:
+                return render(request, "index.html", {
+                    "erro": "Nenhuma análise de notícia inserida foi encontrada."
+                })
+
+            return render(request, "result.html", contexto)
+        
+        
     contexto = {
         "mostrar_grafico": mostrar_grafico,
         "positivos": positivos,
@@ -102,12 +126,3 @@ def analise(request: HttpRequest):
     }
 
     return render(request, 'index.html', contexto)
-
-def analise_5_dias(request: HttpRequest):
-    contexto = {
-        "mostrar_grafico": True,
-        "positivos": 30,
-        "negativos": 30,
-        "neutros": 40
-    }
-    return render(request, 'result.html', contexto)
