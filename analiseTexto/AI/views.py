@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 import string
 import nltk
 from pathlib import Path
 import pickle
 import json
+from .gemini_analysis import gerar_resposta
 
 nltk.download('punkt')
 nltk.download('stopwords')
 
 # Create your views here.
-
 stop_words = set(nltk.corpus.stopwords.words('portuguese'))
 
 def extrair_caracteristicas(palavras):
@@ -22,6 +22,7 @@ def preparar_texto(texto):
     palavras = nltk.tokenize.word_tokenize(texto, language='portuguese')
 
     palavras_filtradas = []
+    
     for palavra in palavras:
         if palavra not in stop_words and len(palavra) > 2:
             palavras_filtradas.append(palavra)
@@ -54,41 +55,106 @@ def analise(request: HttpRequest):
     neutros = 0
     texto = ""
     resultado = ""
-
+    resposta = ""
+    
+    contexto = {
+        "mostrar_grafico": mostrar_grafico,
+        "positivos": positivos,
+        "negativos": negativos,
+        "neutros": neutros,
+        "texto": texto,
+        "resultado": resultado,
+        "resposta": resposta
+    }
+    
     if request.method == 'POST':
         texto = request.POST.get('texto', '').strip()
 
         if texto:
             palavras = preparar_texto(texto)
-            caracteristicas = extrair_caracteristicas(palavras)
-
-            resultado = classificador.classify(caracteristicas)
-            probabilidades = classificador.prob_classify(caracteristicas)
-
-            positivos = round(probabilidades.prob("positivo") * 100, 2)
-            negativos = round(probabilidades.prob("negativo") * 100, 2)
-            neutros = round(probabilidades.prob("neutro") * 100, 2)
-
-            mostrar_grafico = True
-                      
-            contexto = {
-                "mostrar_grafico": mostrar_grafico,
-                "positivos": positivos,
-                "negativos": negativos,
-                "neutros": neutros,
-                "texto": texto,
-                "resultado": resultado,
-                "acuracia": metricas["acuracia"],
-                "precisao": metricas["precisao"],
-                "tempo_treino": round(metricas["tempo_treinamento_ms"] / 1000, 4),
-                "tempo_previsao": round(metricas["tempo_previsao_ms"] / 1000, 4),
-            }
             
-            request.session["analise_inserida"] = contexto
-            request.session.modified = True
+            texto_formatado = ' '.join(palavras)
+            
+            try:
+                resposta = gerar_resposta(texto_formatado)
+                
+                if resposta is None:
+                    
+                    caracteristicas = extrair_caracteristicas(palavras)
 
-            return render(request, "result.html", contexto)
-    
+                    resultado = classificador.classify(caracteristicas)
+                    probabilidades = classificador.prob_classify(caracteristicas)
+
+                    positivos = round(probabilidades.prob("positivo") * 100, 2)
+                    negativos = round(probabilidades.prob("negativo") * 100, 2)
+                    neutros = round(probabilidades.prob("neutro") * 100, 2)
+
+                    mostrar_grafico = True
+                            
+                    contexto = {
+                        "mostrar_grafico": mostrar_grafico,
+                        "positivos": positivos,
+                        "negativos": negativos,
+                        "neutros": neutros,
+                        "texto": texto,
+                        "resultado": resultado,
+                        "resposta": resposta,
+                        "acuracia": metricas["acuracia"],
+                        "precisao": metricas["precisao"],
+                        "tempo_treino": round(metricas["tempo_treinamento_ms"] / 1000, 4),
+                        "tempo_previsao": round(metricas["tempo_previsao_ms"] / 1000, 4),
+                    }
+                    
+                    request.session["analise_inserida"] = contexto
+                    request.session.modified = True
+
+                    return redirect("/analise/?tipo=inserida")
+                    
+        
+                else:
+                    
+                    resposta_limpa = resposta.strip().lower().replace(".", "")
+
+                    if resposta_limpa in ["inválido", "invalid", "invalido"]:
+                        return redirect("/")
+                    
+                    caracteristicas = extrair_caracteristicas(palavras)
+
+                    resultado = classificador.classify(caracteristicas)
+                    probabilidades = classificador.prob_classify(caracteristicas)
+
+                    positivos = round(probabilidades.prob("positivo") * 100, 2)
+                    negativos = round(probabilidades.prob("negativo") * 100, 2)
+                    neutros = round(probabilidades.prob("neutro") * 100, 2)
+
+                    mostrar_grafico = True
+                            
+                    contexto = {
+                        "mostrar_grafico": mostrar_grafico,
+                        "positivos": positivos,
+                        "negativos": negativos,
+                        "neutros": neutros,
+                        "texto": texto,
+                        "resultado": resultado,
+                        "resposta": resposta,
+                        "acuracia": metricas["acuracia"],
+                        "precisao": metricas["precisao"],
+                        "tempo_treino": round(metricas["tempo_treinamento_ms"] / 1000, 4),
+                        "tempo_previsao": round(metricas["tempo_previsao_ms"] / 1000, 4),
+                    }
+                    
+                    request.session["analise_inserida"] = contexto
+                    request.session.modified = True
+
+                    return redirect("/analise/?tipo=inserida")
+                    
+            except Exception as erro:
+                
+                print(f"Ocorreu o erro: {erro}")
+                
+                return redirect("/")
+                
+        
     elif request.method == 'GET':
         
         if request.GET.get("tipo") == "5_dias":
@@ -114,15 +180,5 @@ def analise(request: HttpRequest):
                 })
 
             return render(request, "result.html", contexto)
-        
-        
-    contexto = {
-        "mostrar_grafico": mostrar_grafico,
-        "positivos": positivos,
-        "negativos": negativos,
-        "neutros": neutros,
-        "texto": texto,
-        "resultado": resultado,
-    }
 
     return render(request, 'index.html', contexto)

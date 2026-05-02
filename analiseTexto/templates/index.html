@@ -204,12 +204,13 @@
                 </div>
                 <div
                     class="flex flex-col items-center justify-center w-full px-6 py-8  lg:h-[32rem] lg:w-full rounded-lg shadow-xl shadow-black bg-white dark:bg-gray-900 mt-12">
-                    <form action="{% url 'analise' %}?tipo=inserida" method="post"
+                    <form action="{% url 'analise' %}" method="post"
                         class="flex flex-col p-12 w-2/3 justify-center items-center my-8">
                         {% csrf_token %}
 
                         <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
+                            
                         <div class="flex flex-row justify-start w-full">
                             <div id="clear-btn" title="" type="button"
                                 class="hover:shadow-xl flex items-center justify-center duration-300 transition-all transform cursor-pointer mx-2 mt-2 h-12 w-12 focus:outline-none text-gray-900 hover:text-white capitalize bg-gray-200 rounded-lg hover:bg-red-600 active:bg-red-900 active:border-1 ">
