@@ -3,9 +3,12 @@ from django.http import HttpRequest
 import string
 import nltk
 from pathlib import Path
+from datetime import timedelta
+from django.utils import timezone
 import pickle
 import json
 from .gemini_analysis import gerar_resposta
+from AI.models import Noticia
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -145,7 +148,21 @@ def analise(request: HttpRequest):
                     
                     request.session["analise_inserida"] = contexto
                     request.session.modified = True
+                    
+                    #inserirNoticia = Noticia(conteudo=texto, sentimento=resultado, tema=resposta)
 
+                    #inserirNoticia.save()
+                    
+                    #agora = timezone.now()
+                    
+                    #cinco_dias_atras = agora - timedelta(days=5)
+
+                    #noticias = Noticia.objects.filter(inserido_em__gte=cinco_dias_atras).order_by('-inserido_em')
+                    
+                    #for noticia in noticias:
+                        #data_local = timezone.localtime(noticia.inserido_em)
+                        #print(f"{noticia.tema} - {data_local:%d/%m/%Y %H:%M}")
+                    
                     return redirect("/analise/?tipo=inserida")
                     
             except Exception as erro:
