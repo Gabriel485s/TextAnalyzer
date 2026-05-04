@@ -23,7 +23,7 @@ try:
             #palavras = texto.split()
             #all_words.extend(palavras)
                
-    pagina = requests.get("https://boanoticiabrasil.com.br/sustentabilidade/brasil-reduz-desmatamento-queda-global-2025/")
+    pagina = requests.get("")
 
     dados_pagina = BeautifulSoup(pagina.text, 'html.parser')
 
