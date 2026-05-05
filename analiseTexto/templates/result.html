@@ -176,18 +176,21 @@
 
                 <!-- User Insert News -->
                 <div id="user-news" class="flex flex-row justify-between items-center min-h-full w-full real-content">
-                    <div class="flex flex-col">
-                        <div class="max-w-xs p-9 text-gray-200">
-                            <h2 class=" max-w-xs pb-2 text-gray-200 text-xl font-bold">Notícia analisada:</h2>
-                            <textarea name="texto" id="texto" rows="10" cols="100" readonly class="text-white p-5 rounded-xs bg-gray-800 w-full resize-none overflow-y-scroll 
-      [&::-webkit-scrollbar]:w-3
-      [&::-webkit-scrollbar-track]:bg-gray-900
-      [&::-webkit-scrollbar-thumb]:bg-gray-700
-      [&::-webkit-scrollbar-thumb]:rounded-full">{{texto}}</textarea>
-                        </div>
 
-                    </div>
+
                     <div class="flex flex-col">
+                        <div class="flex flex-col">
+                            <div class="max-w-2xl p-9 text-gray-200">
+                                <h2 class=" max-w-xs pb-2 text-gray-200 text-xl font-bold">Notícia analisada:</h2>
+                                <textarea name="texto" id="texto" rows="10" cols="100" readonly class="text-white p-5 rounded-xs bg-gray-800 w-full resize-none overflow-y-scroll 
+          [&::-webkit-scrollbar]:w-3
+          [&::-webkit-scrollbar-track]:bg-gray-800
+          [&::-webkit-scrollbar-thumb]:bg-gray-700
+          [&::-webkit-scrollbar-thumb]:rounded-full">{{texto}}</textarea>
+                            </div>
+    
+                        </div>
+                    <div class="flex flex-row">
 
                         <div class=" max-w-xs p-9 text-gray-200">
                             <h1 class="font-bold">Sentimento da Notícia: 
@@ -212,13 +215,16 @@
 
                         <div class=" max-w-xs  p-9 text-gray-200">
                             <h1 class="font-bold">Tipo da notícia: <span
-                                    class="text-gray-500 text-md font-normal">{{resposta}}</span></h1>
+                                    class="text-blue-400 text-md font-normal underline">{{resposta}}</span></h1>
 
                             <p class=" mt-2">O tempo de previsão em IA indica quanto tempo o modelo leva para analisar
                                 dados e
                                 gerar uma resposta.</p>
                         </div>
                     </div>
+
+                    </div>
+                    
                     <div class="flex flex-1">
                         <div
                             class="h-2xl min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400">
@@ -265,6 +271,15 @@
 
                     <h1 class="text-2xl text-gray-200 font-bold mb-6">Notícias dos Últimos 5 Dias</h1>
 
+                    <button onclick="carregar()"
+                        class="fixed bottom-4 right-4 mb-4 bg-red-600 px-2 py-1 text-sm rounded-lg text-gray-200 transition duration-100 ease-in-out flex items-center flex-row border-1 border-red-500 hover:border-white active:bg-red-400">
+                        <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                            <path
+                                d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
+                            </path>
+                        </svg>
+                        Recarregar Gráfico
+                    </button>
                     <div
                         class="w-full text-gray-200 content-graph border-1 border-gray-800 p-5 rounded-sm shadow-lg mb-5">
                         <div class="flex items-center gap-2 mb-2">
@@ -535,15 +550,7 @@
                             </div>
                         </div>
                     </div>
-                    <button onclick="carregar()"
-                        class="mt-4 bg-red-500 px-2 py-1 text-sm rounded-lg text-gray-200 transition duration-100 ease-in-out flex items-center flex-row border-1 border-red-500 hover:border-white active:bg-red-400">
-                        <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-                            <path
-                                d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z">
-                            </path>
-                        </svg>
-                        Gráfico não carregou? Clique aqui para renderiza-lo corretamente
-                    </button>
+                    
                 </div>
 
             </div>
