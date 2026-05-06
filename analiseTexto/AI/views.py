@@ -149,19 +149,21 @@ def analise(request: HttpRequest):
                     request.session["analise_inserida"] = contexto
                     request.session.modified = True
                     
-                    #inserirNoticia = Noticia(conteudo=texto, sentimento=resultado, tema=resposta)
+                    inserirNoticia = Noticia(conteudo=texto, sentimento=resultado, tema=resposta)
 
-                    #inserirNoticia.save()
+                    inserirNoticia.save()
                     
-                    #agora = timezone.now()
+                    agora = timezone.now()
                     
-                    #cinco_dias_atras = agora - timedelta(days=5)
+                    cinco_dias_atras = agora - timedelta(days=5)
 
-                    #noticias = Noticia.objects.filter(inserido_em__gte=cinco_dias_atras).order_by('-inserido_em')
-                    
+                    temas = Noticia.objects.filter(inserido_em__gte=cinco_dias_atras).values_list('tema', flat=True).distinct().order_by('tema')
                     #for noticia in noticias:
                         #data_local = timezone.localtime(noticia.inserido_em)
                         #print(f"{noticia.tema} - {data_local:%d/%m/%Y %H:%M}")
+                        
+                    for tema in temas:
+                         print(tema)
                     
                     return redirect("/analise/?tipo=inserida")
                     

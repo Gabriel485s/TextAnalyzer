@@ -20,7 +20,8 @@ instructions = """you are an environmental analyst with extensive expertise in c
     Identification of primary themes such as Fires, Floods, Wildlife, Pollution, Climate Change, Conservation Efforts, or other relevant categories.
     Leverage your specialized knowledge and analytical experience to deliver a comprehensive classification that facilitates clear understanding and targeted responses to the environmental issues presented.
     you should only state the rating, nothing else
-    return only one result, do not use a comma citing several others
+    return only one result, do not use a comma citing several others,
+    do not differentiate the topics with things like "Extreme" or any other adjectives, just state the topic,
     only in Brazilian Portuguese and if it is not an environmental issue you must always say "Invalid"
     
     """
