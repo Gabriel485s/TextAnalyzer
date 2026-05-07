@@ -179,11 +179,46 @@ def analise(request: HttpRequest):
         if request.GET.get("tipo") == "5_dias":
             mostrar_grafico = True
             
+            noticias = Noticia.objects.all()
+            
+            noticiasLista = list(
+                noticias.values(
+                    'tema',
+                    'sentimento',
+                    'inserido_em'
+                )
+            )
+            
+            for noticia in noticiasLista:
+                noticia['inserido_em'] = (
+                    noticia['inserido_em'].isoformat()
+                )
+            
+            total = noticias.count()
+
+            inundacoes = noticias.filter(tema='Inundações').count()
+            clima = noticias.filter(tema='Mudanças Climáticas').count()
+            queimadas = noticias.filter(tema='Queimadas').count()
+            sustentabilidade = noticias.filter(tema='Sustentabilidade').count()
+            
+            positivos = noticias.filter(sentimento='positivo').count()
+            negativos = noticias.filter(sentimento='negativo').count()
+            neutros = noticias.filter(sentimento='neutro').count()
+
+            porcentagem_positivos = (positivos / total) * 100 if total > 0 else 0
+            porcentagem_negativos = (negativos / total) * 100 if total > 0 else 0
+            porcentagem_neutros = (neutros / total) * 100 if total > 0 else 0
+            
             contexto = {
             "mostrar_grafico": mostrar_grafico,
-            "positivos": 30,
-            "negativos": 30,
-            "neutros": 40,
+            "positivos": round(porcentagem_positivos, 2),
+            "negativos": round(porcentagem_negativos, 2),
+            "neutros": round(porcentagem_neutros, 2),
+            "inundacoes": inundacoes,
+            "clima": clima,
+            "queimadas": queimadas,
+            "sustentabilidade": sustentabilidade,
+            '5_dias_json': json.dumps(noticiasLista, default=str)
             }
         
         

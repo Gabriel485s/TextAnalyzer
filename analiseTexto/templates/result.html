@@ -309,20 +309,20 @@
                                 <div id="tema-options" class=" transition-opacity duration-100 ease-in-out opacity-0 flex flex-col w-48 rounded-sm bg-gray-700 absolute hidden px-1 py-2">
                                     <h1 class="text-md text-gray-200 font-semibold px-2 py-1">Temas</h1>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700 py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
-                                        <input checked class="mr-1 checked:border-indigo-300" type="radio" id="enchente" name="tema" value="enchente">
-                                        Enchente
+                                        <input checked class="mr-1 checked:border-indigo-300" type="radio" id="inundações" name="tema" value="inundações">
+                                        Inundações
                                     </label>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700 py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
                                         <input class="mr-1" type="radio" id="queimadas" name="tema" value="queimadas">
                                         Queimadas
                                     </label>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700 py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
-                                        <input class="mr-1" type="radio" id="deslizamentos" name="tema" value="deslizamentos">
-                                        Deslizamentos
+                                        <input class="mr-1" type="radio" id="mudanças climáticas" name="tema" value="mudanças climáticas">
+                                        Clima
                                     </label>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700 py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
-                                        <input class="mr-1" type="radio" id="chuvas" name="tema" value="chuvas">
-                                        Chuvas
+                                        <input class="mr-1" type="radio" id="sustentabilidade" name="tema" value="sustentabilidade">
+                                        Sustentabilidade
                                     </label>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700  py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
                                         <input class="mr-1" type="radio" id="seila" name="tema" value="seila">
@@ -653,397 +653,522 @@
         </div>
     </footer>
     <script >
+
         const resultSection = document.getElementById("resultSection")
-const skeletonContent = document.querySelector(".skeleton-loader")
-const realContent = document.querySelector(".real-content")
-const loadingUI = document.querySelector(".loading-ui")
-const userNewsDiv = document.getElementById("user-news")
-const ldNewsDiv = document.getElementById("last-days-news")
-// const skeletonAiData = document.getElementById("skeleton-ai-data");
-// const aiData = document.getElementById("ai-data");
+        const skeletonContent = document.querySelector(".skeleton-loader")
+        const realContent = document.querySelector(".real-content")
+        const loadingUI = document.querySelector(".loading-ui")
+        const userNewsDiv = document.getElementById("user-news")
+        const ldNewsDiv = document.getElementById("last-days-news")
+        // const skeletonAiData = document.getElementById("skeleton-ai-data");
+        // const aiData = document.getElementById("ai-data");
 
-setTimeout(() => {
-    setTimeout(() => {
-        loadingUI.style.display = "none"
-    }, 1500)
-    skeletonContent.style.display = "none"
-    realContent.style.display = "flex"
-
-    document.getElementById("skeleton-ai-data").classList.add("hidden");
-    document.getElementById("ai-data").classList.remove("hidden");
-}, 2000)
-
-function select(selectedBtn, redirecionar = true) {
-
-    const params = new URLSearchParams(window.location.search);
-    const origem = params.get("origem");
-
-    if (origem === "inicial" && selectedBtn.id === "user-news-btn") {
-        console.log("Bloqueado: veio da página inicial");
-        return;
-    }
-
-    // remove seleção de todos
-    document.querySelectorAll(".select-btn").forEach(btn => {
-        btn.classList.remove("ring-2", "ring-gray-200", "border-gray-200");
-        btn.disabled = false
-    });
-
-    // adiciona no clicado
-    selectedBtn.classList.add("ring-2", "ring-gray-200", "border-gray-200");
-    selectedBtn.disabled = true
-
-    if (selectedBtn.id === "user-news-btn") {
-        ldNewsDiv.classList.add("hidden")
-        resultSection.classList.add("flex-col-reverse")
-        skeletonContent.style.display = "flex"
         setTimeout(() => {
-            createUserChart();
+            setTimeout(() => {
+                loadingUI.style.display = "none"
+            }, 1500)
             skeletonContent.style.display = "none"
-            userNewsDiv.classList.remove("hidden")
-            resultSection.classList.remove("flex-col-reverse")
-        }, 1000)
+            realContent.style.display = "flex"
 
-        console.log("user-news")
+            document.getElementById("skeleton-ai-data").classList.add("hidden");
+            document.getElementById("ai-data").classList.remove("hidden");
+        }, 2000)
 
-        if (redirecionar) {
-            window.location.href = "/analise/?tipo=inserida";
-        }
+        function select(selectedBtn, redirecionar = true) {
 
-    } else {
-        userNewsDiv.classList.add("hidden")
-        resultSection.classList.add("flex-col-reverse")
-        skeletonContent.style.display = "flex"
-        setTimeout(() => {
-            createNewsBarChart();
-            createNewsPizzaChart();
-            skeletonContent.style.display = "none"
-            ldNewsDiv.classList.remove("hidden")
-            resultSection.classList.remove("flex-col-reverse")
-        }, 1000)
+            const params = new URLSearchParams(window.location.search);
+            const origem = params.get("origem");
 
-        console.log("ld-news")
+            if (origem === "inicial" && selectedBtn.id === "user-news-btn") {
+                console.log("Bloqueado: veio da página inicial");
+                return;
+            }
 
-        if (redirecionar) {
-            window.location.href = "/analise/?tipo=5_dias&origem=noticia"
-        }
-    }
+            // remove seleção de todos
+            document.querySelectorAll(".select-btn").forEach(btn => {
+                btn.classList.remove("ring-2", "ring-gray-200", "border-gray-200");
+                btn.disabled = false
+            });
 
-}
+            // adiciona no clicado
+            selectedBtn.classList.add("ring-2", "ring-gray-200", "border-gray-200");
+            selectedBtn.disabled = true
 
-document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    const origem = params.get("origem");
+            if (selectedBtn.id === "user-news-btn") {
+                ldNewsDiv.classList.add("hidden")
+                resultSection.classList.add("flex-col-reverse")
+                skeletonContent.style.display = "flex"
+                setTimeout(() => {
+                    createUserChart();
+                    skeletonContent.style.display = "none"
+                    userNewsDiv.classList.remove("hidden")
+                    resultSection.classList.remove("flex-col-reverse")
+                }, 1000)
 
-    if (origem === "inicial") {
-        const btn = document.getElementById("ld-news-btn");
+                console.log("user-news")
 
-        if (btn) {
-            select(btn, false);
-
-            const btn2 = document.getElementById("user-news-btn");
-
-            btn2.disabled = true
-            btn2.classList.add("opacity-50", "cursor-not-allowed");
-            btn2.classList.remove(
-                "hover:bg-gray-700",
-                "active:bg-gray-600",
-                "cursor-pointer"
-            );
-        }
-    }
-    else if (origem === "noticia") {
-        const btn = document.getElementById("ld-news-btn");
-
-        if (btn) {
-            select(btn, false);
-        }
-    }
-});
-
-
-
-// Charts Code
-
-
-let chartUser, chartBar, chartPizza, chartTema, chartDias;
-const pizzaUserBtn = document.getElementById('pizza-user-btn')
-const towerUserBtn = document.getElementById('tower-user-btn')
-
-function createUserChart(type = 'pie') {
-    const ctxUser = document.getElementById('chart-user');
-
-    if (chartUser) {
-        chartUser.destroy();
-    }
-
-    chartUser = new Chart(ctxUser, {
-        type: type, // 'bar' ou 'pie'
-        data: {
-            labels: ['Positivo', 'Negativo', 'Neutro'],
-            datasets: [{
-                label: '# Probabilidade de Sentimento',
-                data: [
-                    Number("{{ positivos }}".replace(",", ".")),
-                    Number("{{ negativos }}".replace(",", ".")),
-                    Number("{{ neutros }}".replace(",", "."))
-                ],
-                borderWidth: 1,
-                backgroundColor: type === 'pie' ? [
-                    'rgba(34, 197, 94, 0.7)',
-                    'rgba(239, 68, 68, 0.7)',
-                    'rgba(209, 213, 219, 0.7)'
-                ] : undefined,
-                borderColor: type === 'pie' ? [
-                    'rgba(21, 128, 61, 1)',
-                    'rgba(185, 28, 28, 1)',
-                    'rgba(107, 114, 128, 1)'
-                ] : undefined
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            radius: '80%',
-            scales: type === 'bar' ? {
-                y: {
-                    beginAtZero: true,
-                    suggestedMax: 1
+                if (redirecionar) {
+                    window.location.href = "/analise/?tipo=inserida";
                 }
-            } : {}
+
+            } else {
+                userNewsDiv.classList.add("hidden")
+                resultSection.classList.add("flex-col-reverse")
+                skeletonContent.style.display = "flex"
+                setTimeout(() => {
+                    createNewsBarChart();
+                    createNewsPizzaChart();
+                    skeletonContent.style.display = "none"
+                    ldNewsDiv.classList.remove("hidden")
+                    resultSection.classList.remove("flex-col-reverse")
+                }, 1000)
+
+                console.log("ld-news")
+
+                if (redirecionar) {
+                    window.location.href = "/analise/?tipo=5_dias&origem=noticia"
+                }
+            }
+
         }
-    });
-}
+        
+        function obterDiasSelecionados(valor) {
 
-function createTemaChart(type = 'bar') {
+            if (valor === "um-dia-antes") return 1;
+            if (valor === "dois-dias-antes") return 2;
+            if (valor === "tres-dias-antes") return 3;
+            if (valor === "quatro-dias-antes") return 4;
+            if (valor === "cinco-dias-antes") return 5;
+
+            return 1;
+        }
+
+        function atualizarDias() {
+
+            const valorSelecionado =
+                document.querySelector(
+                    'input[name="dias"]:checked'
+                ).value;
+
+            const diasSelecionados =
+                obterDiasSelecionados(valorSelecionado);
+
+            const agora = new Date();
+
+            const noticiasDias = noticias.filter(noticia => {
+
+                const dataNoticia =
+                    new Date(noticia.inserido_em);
+
+                const diferencaDias =
+                    (agora - dataNoticia)
+                    / (1000 * 60 * 60 * 24);
+
+                return (
+                    diferencaDias >= diasSelecionados - 1 &&
+                    diferencaDias < diasSelecionados
+                );
+            });
+
+            const dados =
+                calcularSentimentos(noticiasDias);
+
+            chartDias.data.datasets[0].data = dados;
+
+            chartDias.update();
+        }
+
+        function atualizarTema(){
+            const temaSelecionado =
+                            document.querySelector(
+                                'input[name="tema"]:checked'
+                            ).value;
+
+                        const noticiasTema = noticias.filter(noticia => {
+
+                            return noticia.tema.toLowerCase()
+                                === temaSelecionado.toLowerCase();
+
+                        });
+
+                        const dados =
+                            calcularSentimentos(noticiasTema);
+
+                        chartTema.data.datasets[0].data = dados;
+
+                        chartTema.update();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const origem = params.get("origem");
+            const tipo = params.get("tipo");
+
+            if (origem === "inicial") {
+                const btn = document.getElementById("ld-news-btn");
+
+                
+
+                if (btn) {
+                    select(btn, false);
+
+                    const btn2 = document.getElementById("user-news-btn");
+
+                    btn2.disabled = true
+                    btn2.classList.add("opacity-50", "cursor-not-allowed");
+                    btn2.classList.remove(
+                        "hover:bg-gray-700",
+                        "active:bg-gray-600",
+                        "cursor-pointer"
+                    );
+                }
+            }
+            else if (origem === "noticia") {
+                const btn = document.getElementById("ld-news-btn");
+
+                if (btn) {
+                    select(btn, false);
+                }
+            }
+
+            createTemaChart('bar');
+            createDiasChart('bar');
+
+            atualizarTema();
+            atualizarDias();
+
+            document.querySelectorAll('input[name="tema"]')
+                .forEach(radio => {
+
+                    radio.addEventListener('change', () => {
+
+                        atualizarTema();
+                });
+
+            });
+
+            document.querySelectorAll('input[name="dias"]')
+                .forEach(radio => {
+
+                    radio.addEventListener('change', () => {
+
+                        atualizarDias();
+
+                    });
+
+                });
+
+        });
+        
+        function calcularSentimentos(lista) {
+
+            const total = lista.length;
+
+            let positivos = 0;
+            let negativos = 0;
+            let neutros = 0;
+
+            lista.forEach(noticia => {
+
+                const resultado = noticia.sentimento;
+
+                if (resultado === "positivo") positivos++;
+                else if (resultado === "negativo") negativos++;
+                else if (resultado === "neutro") neutros++;
+            });
+
+            return [
+                total ? (positivos / total) * 100 : 0,
+                total ? (negativos / total) * 100 : 0,
+                total ? (neutros / total) * 100 : 0
+            ];
+        }
+
+        var label = '# Probabilidade de Sentimento'
+        const params = new URLSearchParams(window.location.search);
+        const tipo = params.get("tipo");
+
+        const noticias = JSON.parse(
+            '{{ 5_dias_json|escapejs }}'
+        );
+
+        if (tipo == "5_dias"){
+                label = '# Média de Sentimento'
+        }else{
+            label = '# Probabilidade de Sentimento'
+        }
+
+        // Charts Code
 
 
-    const ctxTema = document.getElementById('tema-chart');
+        let chartUser, chartBar, chartPizza, chartTema, chartDias;
+        const pizzaUserBtn = document.getElementById('pizza-user-btn')
+        const towerUserBtn = document.getElementById('tower-user-btn')
 
-    if (chartTema) {
-        chartTema.destroy();
-    }
+        function createUserChart(type = 'pie') {
+            const ctxUser = document.getElementById('chart-user');
 
-    chartTema = new Chart(ctxTema, {
-        type: type,
-        data: {
-            labels: ['Positivo', 'Negativo', 'Neutro'],
-            datasets: [{
-                label: '# Probabilidade de Sentimento',
-                data: [
-                    {
-                        "enchente": [
+            if (chartUser) {
+                chartUser.destroy();
+            }
+
+            chartUser = new Chart(ctxUser, {
+                type: type, // 'bar' ou 'pie'
+                data: {
+                    labels: ['Positivo', 'Negativo', 'Neutro'],
+                    datasets: [{
+                        label: '# Probabilidade de Sentimento',
+                        data: [
                             Number("{{ positivos }}".replace(",", ".")),
                             Number("{{ negativos }}".replace(",", ".")),
                             Number("{{ neutros }}".replace(",", "."))
                         ],
-
-                        "queimadas": [
-                            Number("{{ positivos }}".replace(",", ".")),
-                            Number("{{ negativos }}".replace(",", ".")),
-                            Number("{{ neutros }}".replace(",", "."))
-                        ]
-                    }
-                ],
-                borderWidth: 1,
-                backgroundColor: type === 'pie' ? [
-                    'rgba(34, 197, 94, 0.7)',
-                    'rgba(239, 68, 68, 0.7)',
-                    'rgba(209, 213, 219, 0.7)'
-                ] : undefined,
-                borderColor: type === 'pie' ? [
-                    'rgba(21, 128, 61, 1)',
-                    'rgba(185, 28, 28, 1)',
-                    'rgba(107, 114, 128, 1)'
-                ] : undefined
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            radius: '80%',
-            scales: type === 'bar' ? {
-                y: {
-                    beginAtZero: true,
-                    suggestedMax: 1
+                        borderWidth: 1,
+                        backgroundColor: type === 'pie' ? [
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(209, 213, 219, 0.7)'
+                        ] : undefined,
+                        borderColor: type === 'pie' ? [
+                            'rgba(21, 128, 61, 1)',
+                            'rgba(185, 28, 28, 1)',
+                            'rgba(107, 114, 128, 1)'
+                        ] : undefined
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    radius: '80%',
+                    scales: type === 'bar' ? {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 1
+                        }
+                    } : {}
                 }
-            } : {}
+            });
         }
-    });
-}
 
-function createDiasChart(type = 'bar') {
+        function createTemaChart(type = 'bar') {
 
 
-    const ctxDias = document.getElementById('dias-chart');
+            const ctxTema = document.getElementById('tema-chart');
 
-    if (chartDias) {
-        chartDias.destroy();
-    }
+            if (chartTema) {
+                chartTema.destroy();
+            }
+            
+            
 
-    chartDias = new Chart(ctxDias, {
-        type: type,
-        data: {
-            labels: ['Positivo', 'Negativo', 'Neutro'],
-            datasets: [{
-                label: '# Probabilidade de Sentimento',
-                data: [
-                    {
-                        "enchente": [
+            chartTema = new Chart(ctxTema, {
+                type: type,
+                data: {
+                    labels: ['Positivo', 'Negativo', 'Neutro'],
+                    datasets: [{
+                        label: '# Média de Sentimento',
+                        data: [0, 0, 0],
+                        borderWidth: 1,
+                        backgroundColor: type === 'pie' ? [
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(209, 213, 219, 0.7)'
+                        ] : undefined,
+                        borderColor: type === 'pie' ? [
+                            'rgba(21, 128, 61, 1)',
+                            'rgba(185, 28, 28, 1)',
+                            'rgba(107, 114, 128, 1)'
+                        ] : undefined
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    radius: '80%',
+                    scales: type === 'bar' ? {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 1
+                        }
+                    } : {}
+                }
+            });
+        }
+
+        function createDiasChart(type = 'bar') {
+
+
+            const ctxDias = document.getElementById('dias-chart');
+
+            if (chartDias) {
+                chartDias.destroy();
+            }
+
+            chartDias = new Chart(ctxDias, {
+                type: type,
+                data: {
+                    labels: ['Positivo', 'Negativo', 'Neutro'],
+                    datasets: [{
+                        label: '# Média de Sentimento',
+                        data: [
+                            {
+                                "enchente": [
+                                    Number("{{ positivos }}".replace(",", ".")),
+                                    Number("{{ negativos }}".replace(",", ".")),
+                                    Number("{{ neutros }}".replace(",", "."))
+                                ],
+
+                                "queimadas": [
+                                    Number("{{ positivos }}".replace(",", ".")),
+                                    Number("{{ negativos }}".replace(",", ".")),
+                                    Number("{{ neutros }}".replace(",", "."))
+                                ]
+                            }
+                        ],
+                        borderWidth: 1,
+                        backgroundColor: type === 'pie' ? [
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(209, 213, 219, 0.7)'
+                        ] : undefined,
+                        borderColor: type === 'pie' ? [
+                            'rgba(21, 128, 61, 1)',
+                            'rgba(185, 28, 28, 1)',
+                            'rgba(107, 114, 128, 1)'
+                        ] : undefined
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    radius: '80%',
+                    scales: type === 'bar' ? {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 1
+                        }
+                    } : {}
+                }
+            });
+        }
+
+        function createNewsBarChart(type = 'bar') {
+
+
+            const ctxBar = document.getElementById('news-bar-chart');
+
+            if (chartBar) {
+                chartBar.destroy();
+            }
+
+            chartBar = new Chart(ctxBar, {
+                type: type,
+                data: {
+                    labels: ['Queimadas', 'Inundações', 'Clima', 'Sustentabilidade'],
+                    datasets: [{
+                        label: '# Quantidade de Noticias',
+                        data: [
+                            Number("{{ queimadas }}".replace(",", ".")),
+                            Number("{{ inundacoes }}".replace(",", ".")),
+                            Number("{{ clima }}".replace(",", ".")),
+                            Number("{{ sustentabilidade }}".replace(",", "."))
+                        ],
+                        borderWidth: 1,
+                        backgroundColor: type === 'pie' ? [
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(209, 213, 219, 0.7)'
+                        ] : undefined,
+                        borderColor: type === 'pie' ? [
+                            'rgba(21, 128, 61, 1)',
+                            'rgba(185, 28, 28, 1)',
+                            'rgba(107, 114, 128, 1)'
+                        ] : undefined
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    radius: '80%',
+                    scales: type === 'bar' ? {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 1
+                        }
+                    } : {}
+                }
+            });
+        }
+
+        function createNewsPizzaChart(type = 'pie') {
+            const ctxPizza = document.getElementById('news-pizza-chart');
+
+            if (chartPizza) {
+                chartPizza.destroy();
+            }
+
+            chartPizza = new Chart(ctxPizza, {
+                type: type,
+                data: {
+                    labels: ['Positivo', 'Negativo', 'Neutro'],
+                    datasets: [{
+                        label: label,
+                        data: [
                             Number("{{ positivos }}".replace(",", ".")),
                             Number("{{ negativos }}".replace(",", ".")),
                             Number("{{ neutros }}".replace(",", "."))
                         ],
-
-                        "queimadas": [
-                            Number("{{ positivos }}".replace(",", ".")),
-                            Number("{{ negativos }}".replace(",", ".")),
-                            Number("{{ neutros }}".replace(",", "."))
-                        ]
-                    }
-                ],
-                borderWidth: 1,
-                backgroundColor: type === 'pie' ? [
-                    'rgba(34, 197, 94, 0.7)',
-                    'rgba(239, 68, 68, 0.7)',
-                    'rgba(209, 213, 219, 0.7)'
-                ] : undefined,
-                borderColor: type === 'pie' ? [
-                    'rgba(21, 128, 61, 1)',
-                    'rgba(185, 28, 28, 1)',
-                    'rgba(107, 114, 128, 1)'
-                ] : undefined
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            radius: '80%',
-            scales: type === 'bar' ? {
-                y: {
-                    beginAtZero: true,
-                    suggestedMax: 1
+                        borderWidth: 1,
+                        backgroundColor: type === 'pie' ? [
+                            'rgba(34, 197, 94, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(209, 213, 219, 0.7)'
+                        ] : undefined,
+                        borderColor: type === 'pie' ? [
+                            'rgba(21, 128, 61, 1)',
+                            'rgba(185, 28, 28, 1)',
+                            'rgba(107, 114, 128, 1)'
+                        ] : undefined
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    radius: '80%',
+                    scales: type === 'bar' ? {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 1
+                        }
+                    } : {}
                 }
-            } : {}
+            });
         }
-    });
-}
 
-function createNewsBarChart(type = 'bar') {
+        pizzaUserBtn.addEventListener('click', () => {
+            createUserChart('pie');
+        });
 
+        towerUserBtn.addEventListener('click', () => {
+            createUserChart('bar');
+        });
 
-    const ctxBar = document.getElementById('news-bar-chart');
+        const carregar = () => {
+            // Recria o gráfico da notícia inserida (se visível)
+            if (userNewsDiv && !userNewsDiv.classList.contains('hidden')) {
+                createUserChart('pie');
+            }
 
-    if (chartBar) {
-        chartBar.destroy();
-    }
-
-    chartBar = new Chart(ctxBar, {
-        type: type,
-        data: {
-            labels: ['Positivo', 'Negativo', 'Neutro'],
-            datasets: [{
-                label: '# Probabilidade de Sentimento',
-                data: [
-                    Number("{{ positivos }}".replace(",", ".")),
-                    Number("{{ negativos }}".replace(",", ".")),
-                    Number("{{ neutros }}".replace(",", "."))
-                ],
-                borderWidth: 1,
-                backgroundColor: type === 'pie' ? [
-                    'rgba(34, 197, 94, 0.7)',
-                    'rgba(239, 68, 68, 0.7)',
-                    'rgba(209, 213, 219, 0.7)'
-                ] : undefined,
-                borderColor: type === 'pie' ? [
-                    'rgba(21, 128, 61, 1)',
-                    'rgba(185, 28, 28, 1)',
-                    'rgba(107, 114, 128, 1)'
-                ] : undefined
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            radius: '80%',
-            scales: type === 'bar' ? {
-                y: {
-                    beginAtZero: true,
-                    suggestedMax: 1
-                }
-            } : {}
+            // Recria os gráficos das últimas notícias (se visível)
+            if (ldNewsDiv && !ldNewsDiv.classList.contains('hidden')) {
+                createDiasChart('bar')
+                createNewsBarChart('bar');
+                createNewsPizzaChart('pie');
+                createTemaChart('bar');
+            }
         }
-    });
-}
 
-function createNewsPizzaChart(type = 'pie') {
-    const ctxPizza = document.getElementById('news-pizza-chart');
-
-    if (chartPizza) {
-        chartPizza.destroy();
-    }
-
-    chartPizza = new Chart(ctxPizza, {
-        type: type,
-        data: {
-            labels: ['Positivo', 'Negativo', 'Neutro'],
-            datasets: [{
-                label: '# Probabilidade de Sentimento',
-                data: [
-                    Number("{{ positivos }}".replace(",", ".")),
-                    Number("{{ negativos }}".replace(",", ".")),
-                    Number("{{ neutros }}".replace(",", "."))
-                ],
-                borderWidth: 1,
-                backgroundColor: type === 'pie' ? [
-                    'rgba(34, 197, 94, 0.7)',
-                    'rgba(239, 68, 68, 0.7)',
-                    'rgba(209, 213, 219, 0.7)'
-                ] : undefined,
-                borderColor: type === 'pie' ? [
-                    'rgba(21, 128, 61, 1)',
-                    'rgba(185, 28, 28, 1)',
-                    'rgba(107, 114, 128, 1)'
-                ] : undefined
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            radius: '80%',
-            scales: type === 'bar' ? {
-                y: {
-                    beginAtZero: true,
-                    suggestedMax: 1
-                }
-            } : {}
-        }
-    });
-}
-
-pizzaUserBtn.addEventListener('click', () => {
-    createUserChart('pie');
-});
-
-towerUserBtn.addEventListener('click', () => {
-    createUserChart('bar');
-});
-
-const carregar = () => {
-    // Recria o gráfico da notícia inserida (se visível)
-    if (userNewsDiv && !userNewsDiv.classList.contains('hidden')) {
-        createUserChart('pie');
-    }
-
-    // Recria os gráficos das últimas notícias (se visível)
-    if (ldNewsDiv && !ldNewsDiv.classList.contains('hidden')) {
-        createDiasChart('bar')
-        createNewsBarChart('bar');
-        createNewsPizzaChart('pie');
-        createTemaChart('bar');
-    }
-}
-window.onload.carregar()
+        carregar();
 
     </script>
 </body>
