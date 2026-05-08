@@ -12,36 +12,6 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
-    <div id="clear-confirm"
-        class="fixed inset-0 flex justify-center items-center transition-all transition-opacity transform duration-1000 -translate-y-full ease-out z-50 opacity-0">
-        <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 ">
-            <div class="flex items-center justify-center w-12 bg-red-500 text-gray-100 bg-clear">
-                <svg class="size-7 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                    <path
-                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                    <path
-                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                </svg>
-            </div>
-
-            <div class="px-4 py-2 -mx-3">
-                <div class="mx-3">
-                    <span class="font-semibold text-red-500 dark:text-red-500 title-clear">Apagar conteúdo</span>
-                    <p class="text-sm text-gray-600 dark:text-gray-100 desc-clear">
-                        Tem certeza que deseja apagar o conteúdo?
-                    </p>
-                    <div class="flex flex-row justify-evenly mt-2 btns-clear">
-                        <button id="clear-confirm-btn"
-                            class="py-1 px-2 text-gray-900 bg-gray-200 rounded-xl transition-all ease-in-out duration-100 hover:text-white hover:bg-red-500 active:bg-red-700 hover:font-semibold">Apagar</button>
-                        <button id="clear-cancel-btn"
-                            class="py-1 px-2 text-gray-200 bg-gray-700 rounded-xl transition-all ease-in-out duration-100 hover:text-white hover:bg-gray-600 active:bg-gray-500">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800 fixed top-0 w-full z-9">
         <div class="container px-6 py-4 mx-auto">
@@ -96,15 +66,16 @@
         </div>
         </div>
     </nav>
+    {% load static %}
     <header class="bg-white dark:bg-gray-900 my-12">
         <div class="container px-6 py-16 mx-auto text-center">
             <div class="max-w-lg mx-auto">
                 <h1 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Conheça agora seu mais novo
-                    agente de inteligência artificial para análise de notícias:</h1>
+                    agente de inteligência artificial para análise de <br><span class=" uppercase tracking-wide text-blue-400 underline font-bold">notícias <span class=" ">ambientais</span></span></h1>
                 <h1
                     class="text-5xl font-semibold text-blue-600 dark:text-blue-400 lg:text-5xl overline mt-7 font-bold tracking-wider">
                     IntelliNews</h1>
-                <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia e verifique a qualidade
+                <p class="mt-6 text-gray-500 dark:text-gray-300">Faça a análise da sua notícia <span class="text-blue-400 underline">ambiental</span> e verifique a qualidade
                     da mesma por meio de dados e inteligência</p>
                 <a href="#aianalysis"><button
                         class="transition duration-300 transform hover:scale-110 px-10 py-4 mt-6 text-lg font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none cursor-pointer active:bg-blue-800 active:border-1 hover:shadow-xl">
@@ -114,7 +85,7 @@
 
             <div class="flex justify-center mt-10">
                 <img class="object-cover w-full h-96 rounded-xl lg:w-4/5 shadow-xl"
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" />
+                    src="{% static 'imagens/noticiasbanner.png' %}"/>
             </div>
         </div>
     </header>
@@ -124,12 +95,12 @@
         <div class="lg:flex">
             <div class="container px-6 py-16 mx-auto text-center">
                 <h2 class="text-5xl font-semibold text-gray-800 dark:text-white lg:text-5xl leading-12">Insira sua
-                    notícia e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>,
+                    <span class="underline">notícia ambiental</span> e deixe a IA analisar a <br><span class="text-blue-600 dark:text-blue-400">qualidade</span>,
                     <span class="text-blue-600 dark:text-blue-400">confiabilidade</span> e o <span
                         class="text-blue-600 dark:text-blue-400">tom do conteúdo</span>!
                 </h2>
                 <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 lg:text-xl">Garanta a credibilidade das suas
-                    informações identificando viés, sentimento e possíveis sinais de desinformação.</p>
+                    informações sobre temas ambientais identificando viés, sentimento e possíveis sinais de desinformação.</p>
                 <div
                     class="flex justify-evenly mt-2 text-lg text-gray-600 dark:text-gray-400 lg:text-lg text-center font-semibold">
                     <p class="flex items-center">
@@ -208,7 +179,7 @@
                         class="flex flex-col p-12 w-2/3 justify-center items-center my-8">
                         {% csrf_token %}
 
-                        <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Digite seu texto aqui"
+                        <textarea name="texto" id="texto" rows="10" cols="50" placeholder="Insira sua notícia ambiental aqui"
                             class="text-white p-5 rounded-lg bg-gray-800 w-full"></textarea>
                             
                         <div class="flex flex-row justify-start w-full">
@@ -348,21 +319,21 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
             <div class="flex justify-center xl:w-1/2">
-                <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover rounded-full"
-                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                <img class="h-80 w-80 sm:w-[28rem] sm:h-[28rem] flex-shrink-0 object-cover rounded-full shadow-xl"
+                    src="{% static 'imagens/celularnews.png' %}"
                     alt="">
             </div>
     
             <div class="flex flex-col items-center mt-6 xl:items-start xl:w-1/2 xl:mt-0">
                 <h2 class="text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">
-                    Análise das Notícias dos <span class="text-blue-400 underline">últimos 5 dias</span>
+                    Análise das notícias ambientais dos <span class="text-blue-400 underline">últimos 5 dias</span>
                 </h2>
     
                 <p class="block max-w-2xl mt-4 text-gray-500 dark:text-gray-300">Fique por dentro! Veja também as análises dos últimos 5 dias realizadas pelo IntelliNews com os principais destaques, gráficos interativos e análises aprofundadas.</p>
     
                 <div class="mt-6 sm:-mx-2">
     
-                    <a href="{% url 'analise' %}?tipo=5_dias&origem=inicial""
+                    <a href="{% url 'analise' %}?tipo=5_dias&origem=inicial"
                         class="inline-flex items-center justify-center w-full px-4 text-lg py-2.5 mt-4 overflow-hidden text-white transition-colors duration-300 bg-blue-600 rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0 hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
     
                         <span class="mx-2">
@@ -402,12 +373,11 @@
                 </div>
             </div>
 
-            <div class="w-full h-64 lg:w-1/2 lg:h-auto">
-                <div class="w-full h-full"
-                    style="background-image: url(https://images.unsplash.com/photo-1508394522741-82ac9c15ba69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=748&q=80)">
-                    <div class="w-full h-full bg-black opacity-25"></div>
-                </div>
-            </div>
+            <div class="w-full h-64 lg:w-1/2 lg:h-auto shadow-xl overflow-hidden">
+    <img class="w-full h-full object-cover object-center"
+        src="{% static 'imagens/intellinews.jpg' %}"
+        alt="Celular News">
+</div>
         </div>
     </section>
     <hr
@@ -427,8 +397,8 @@
 
             <div class="flex flex-row justify-evenly">
                 <div
-                    class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
-                    {% load static %}
+                    class="shadow-xl flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                    
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                         src="{% static 'imagens/gabriel.jpeg' %}" alt="">
 
@@ -463,7 +433,7 @@
                 </div>
 
                 <div
-                    class="flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                    class="shadow-xl flex flex-col w-md items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
                     <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                         src="{% static 'imagens/heitor.png' %}" alt="">
 
