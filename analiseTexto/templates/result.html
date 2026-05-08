@@ -826,11 +826,15 @@
                 }
             }
 
-            createTemaChart('bar');
-            createDiasChart('bar');
+            if (tipo == "5_dias"){
 
-            atualizarTema();
-            atualizarDias();
+                createTemaChart('bar');
+                createDiasChart('bar');
+
+                atualizarTema();
+                atualizarDias();
+
+            }
 
             document.querySelectorAll('input[name="tema"]')
                 .forEach(radio => {
@@ -883,12 +887,14 @@
         const params = new URLSearchParams(window.location.search);
         const tipo = params.get("tipo");
 
-        const noticias = JSON.parse(
-            '{{ 5_dias_json|escapejs }}'
-        );
-
+        var noticias;
         if (tipo == "5_dias"){
                 label = '# Média de Sentimento'
+
+                noticias = JSON.parse(
+                    '{{ 5_dias_json|escapejs }}'
+                );
+
         }else{
             label = '# Probabilidade de Sentimento'
         }

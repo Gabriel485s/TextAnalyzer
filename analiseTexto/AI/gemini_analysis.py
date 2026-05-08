@@ -32,14 +32,24 @@ def gerar_resposta(prompt, tentativas=3):
         for tentativa in range(1, tentativas + 1):
             
             try:
-                resposta = client.models.generate_content(
-                    model=model,
-                    config=types.GenerateContentConfig(
-                        system_instruction=instructions,
-                        thinking_config=types.ThinkingConfig(thinking_level="low"),
-                    ),
-                    contents=prompt,
-                )
+                if (model == "gemini-2.5-flash"):
+                    
+                    resposta = client.models.generate_content(
+                        model=model,
+                        config=types.GenerateContentConfig(
+                            system_instruction=instructions,
+                        ),
+                        contents=prompt,
+                    )
+                else:
+                    resposta = client.models.generate_content(
+                        model=model,
+                        config=types.GenerateContentConfig(
+                            system_instruction=instructions,
+                            thinking_config=types.ThinkingConfig(thinking_level="low"),
+                        ),
+                        contents=prompt,
+                    )
 
                 return resposta.text
 
