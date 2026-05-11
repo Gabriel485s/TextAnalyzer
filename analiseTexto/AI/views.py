@@ -158,13 +158,7 @@ def analise(request: HttpRequest):
                     cinco_dias_atras = agora - timedelta(days=5)
 
                     temas = Noticia.objects.filter(inserido_em__gte=cinco_dias_atras).values_list('tema', flat=True).distinct().order_by('tema')
-                    #for noticia in noticias:
-                        #data_local = timezone.localtime(noticia.inserido_em)
-                        #print(f"{noticia.tema} - {data_local:%d/%m/%Y %H:%M}")
-                        
-                    for tema in temas:
-                         print(tema)
-                    
+
                     return redirect("/analise/?tipo=inserida")
                     
             except Exception as erro:
@@ -200,6 +194,7 @@ def analise(request: HttpRequest):
             clima = noticias.filter(tema='Mudanças Climáticas').count()
             queimadas = noticias.filter(tema='Queimadas').count()
             sustentabilidade = noticias.filter(tema='Sustentabilidade').count()
+            poluicao = noticias.filter(tema='Poluição').count()
             
             positivos = noticias.filter(sentimento='positivo').count()
             negativos = noticias.filter(sentimento='negativo').count()
@@ -218,6 +213,7 @@ def analise(request: HttpRequest):
             "clima": clima,
             "queimadas": queimadas,
             "sustentabilidade": sustentabilidade,
+            "poluicao": poluicao,
             '5_dias_json': json.dumps(noticiasLista, default=str)
             }
         

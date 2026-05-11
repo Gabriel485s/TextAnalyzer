@@ -325,8 +325,8 @@
                                         Sustentabilidade
                                     </label>
                                     <label class="transition-all duration-200 ease-in-out border-1 border-transparent has-checked:border-gray-200 has-checked:bg-gray-600 has-checked:text-gray-300 has-checked:ring-gray-200 flex items-center rounded-lg dark:bg-gray-700  py-2 px-5 hover:dark:bg-gray-600 focus:border-gray-200 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-gray-200 dark:focus:ring-gray-300 focus:ring">
-                                        <input class="mr-1" type="radio" id="seila" name="tema" value="seila">
-                                        Sei la
+                                        <input class="mr-1" type="radio" id="poluição" name="tema" value="poluição">
+                                        Poluição
                                     </label>
                                 </div>
                             </div>
@@ -1065,14 +1065,15 @@
             chartBar = new Chart(ctxBar, {
                 type: type,
                 data: {
-                    labels: ['Queimadas', 'Inundações', 'Clima', 'Sustentabilidade'],
+                    labels: ['Queimadas', 'Inundações', 'Clima', 'Sustentabilidade', 'Poluição'],
                     datasets: [{
                         label: '# Quantidade de Noticias',
                         data: [
                             Number("{{ queimadas }}".replace(",", ".")),
                             Number("{{ inundacoes }}".replace(",", ".")),
                             Number("{{ clima }}".replace(",", ".")),
-                            Number("{{ sustentabilidade }}".replace(",", "."))
+                            Number("{{ sustentabilidade }}".replace(",", ".")),
+                            Number("{{ poluicao }}".replace(",", "."))
                         ],
                         borderWidth: 1,
                         backgroundColor: type === 'pie' ? [
