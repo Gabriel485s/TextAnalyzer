@@ -9,6 +9,7 @@ import pickle
 import json
 from .gemini_analysis import gerar_resposta
 from AI.models import Noticia
+from django.contrib import messages
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -119,6 +120,7 @@ def analise(request: HttpRequest):
                     resposta_limpa = resposta.strip().lower().replace(".", "")
 
                     if resposta_limpa in ["inválido", "invalid", "invalido"]:
+                        messages.error(request, "ERRO: Notícia Inválida! Insira uma noticia relacionada ao meio ambiente.")
                         return redirect("/")
                     
                     caracteristicas = extrair_caracteristicas(palavras)
